@@ -29,6 +29,14 @@ export default function Navbar() {
             {label}
           </NavLink>
         ))}
+        <a
+          href="https://buymeacoffee.com/PLACEHOLDER"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm font-medium px-3 py-1.5 rounded-full border border-primary text-primary hover:bg-primary hover:text-bg transition-colors"
+        >
+          ☕ Donate
+        </a>
       </div>
     </nav>
   )
