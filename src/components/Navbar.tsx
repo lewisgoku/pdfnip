@@ -8,7 +8,7 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   return (
-    <nav className="sticky top-0 z-10 bg-bg px-6 py-4 flex items-center justify-between">
+    <nav aria-label="Main navigation" className="sticky top-0 z-10 bg-bg px-6 py-4 flex items-center justify-between">
       <Link to="/" className="font-display font-bold text-2xl leading-none">
         <span className="text-white">pdf</span>
         <span className="text-primary">nip</span>
