@@ -26,7 +26,10 @@
       "Bash(npx vitest *)",
       "Bash(npx tsc *)",
       "PowerShell(New-Item -ItemType Directory -Path \"e:\\\\vscode projects\\\\pdfnip\\\\.worktrees\\\\foundation\\\\src\\\\pages\" -Force)",
-      "Bash(git branch *)"
+      "Bash(git branch *)",
+      "Bash(git push *)",
+      "Bash(gh repo *)",
+      "PowerShell(gh repo edit lewisgoku/pdfnip --default-branch main)"
     ]
   }
 }
