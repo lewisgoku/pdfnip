@@ -53,7 +53,7 @@ it('renders idle state with DropZone and privacy note', () => {
 
 it('renders how-it-works guide in idle state', () => {
   render(<Split />)
-  expect(screen.getAllByText(/drop your pdf/i).length).toBeGreaterThan(0)
+  expect(screen.getAllByText(/drop your pdf/i)).toHaveLength(2)
   expect(screen.getByText(/choose how to split/i)).toBeInTheDocument()
 })
 
