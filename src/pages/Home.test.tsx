@@ -35,3 +35,15 @@ it('renders the pdfs processed counter', () => {
   expect(screen.getByText(/pdfs processed/i)).toBeInTheDocument()
   expect(screen.getByText(/\d{3},\d{3}\+/)).toBeInTheDocument()
 })
+
+it('renders the how-it-works section heading', () => {
+  renderHome()
+  expect(screen.getByText(/how it works/i)).toBeInTheDocument()
+})
+
+it('renders all three how-it-works steps', () => {
+  renderHome()
+  expect(screen.getByText('Drop your file')).toBeInTheDocument()
+  expect(screen.getByText('Choose your options')).toBeInTheDocument()
+  expect(screen.getByText('Download instantly')).toBeInTheDocument()
+})

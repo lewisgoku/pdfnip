@@ -28,6 +28,24 @@ const TOOLS = [
   },
 ]
 
+const STEPS = [
+  {
+    n: 1,
+    title: 'Drop your file',
+    body: 'Select any PDF up to 100 MB — drag and drop or click to browse',
+  },
+  {
+    n: 2,
+    title: 'Choose your options',
+    body: 'Pick compression level, set a page range, or arrange file order',
+  },
+  {
+    n: 3,
+    title: 'Download instantly',
+    body: 'Your processed PDF is ready immediately — no uploads, no waiting',
+  },
+]
+
 export default function Home() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
@@ -64,6 +82,24 @@ export default function Home() {
           <ToolCard key={tool.href} {...tool} />
         ))}
       </div>
+      <section className="mt-14">
+        <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">
+          How it works
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {STEPS.map(({ n, title, body }) => (
+            <div key={n} className="flex items-start gap-4">
+              <span className="flex-shrink-0 w-8 h-8 rounded-full bg-surface flex items-center justify-center text-primary font-bold text-sm">
+                {n}
+              </span>
+              <div>
+                <p className="text-white text-sm font-medium">{title}</p>
+                <p className="text-gray-500 text-xs mt-1">{body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   )
 }
