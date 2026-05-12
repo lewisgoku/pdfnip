@@ -6,18 +6,21 @@ const TOOLS = [
   {
     title: 'Compress',
     description: 'Reduce PDF file size without losing quality',
+    detail: '3 quality levels · No file size limit',
     icon: <FileDown size={32} />,
     href: '/compress',
   },
   {
     title: 'Merge',
     description: 'Join multiple PDFs into one document',
+    detail: '2–10 files · Drag to reorder',
     icon: <GitMerge size={32} />,
     href: '/merge',
   },
   {
     title: 'Split',
     description: 'Extract pages or split into parts',
+    detail: 'By range, every N pages, or all · ZIP output',
     icon: <Scissors size={32} />,
     href: '/split',
   },

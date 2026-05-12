@@ -34,3 +34,32 @@ it('links to the correct href', () => {
   renderCard()
   expect(screen.getByRole('link')).toHaveAttribute('href', '/compress')
 })
+
+it('renders detail line when provided', () => {
+  render(
+    <MemoryRouter>
+      <ToolCard
+        title="Compress"
+        description="Reduce PDF file size"
+        detail="3 quality levels · No file size limit"
+        icon={<span data-testid="icon">icon</span>}
+        href="/compress"
+      />
+    </MemoryRouter>,
+  )
+  expect(screen.getByText('3 quality levels · No file size limit')).toBeInTheDocument()
+})
+
+it('does not render detail line when omitted', () => {
+  render(
+    <MemoryRouter>
+      <ToolCard
+        title="Compress"
+        description="Reduce PDF file size"
+        icon={<span data-testid="icon">icon</span>}
+        href="/compress"
+      />
+    </MemoryRouter>,
+  )
+  expect(screen.queryByText(/quality levels/i)).not.toBeInTheDocument()
+})
