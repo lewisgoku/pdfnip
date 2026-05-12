@@ -57,7 +57,7 @@ export default function Split() {
     setFile(f)
     setError(null)
     setStatus('ready')
-    getPageCount(f).then(setPageCount).catch(() => {})
+    getPageCount(f).then(setPageCount).catch(() => setError('Could not read page count.'))
   }
 
   async function handleSplit() {
@@ -159,7 +159,7 @@ export default function Split() {
               {MODES.map(({ value, label }) => (
                 <button
                   key={value}
-                  onClick={() => setMode(value)}
+                  onClick={() => { setMode(value); setError(null) }}
                   className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${
                     mode === value
                       ? 'bg-primary text-bg'
@@ -202,7 +202,8 @@ export default function Split() {
 
           <button
             onClick={handleSplit}
-            className="w-full py-3 rounded-full bg-primary text-bg font-semibold text-sm hover:opacity-90 transition-opacity"
+            disabled={status === 'splitting'}
+            className="w-full py-3 rounded-full bg-primary text-bg font-semibold text-sm hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Split
           </button>
