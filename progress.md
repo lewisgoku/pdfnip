@@ -64,7 +64,8 @@ Implement in-browser PDF compression using canvas re-render approach.
 - [x] Tests for compression tool logic
 - [x] Tests for Compress page UI states
 - [x] Typecheck and build verify
-- [x] Merged to master
+- [x] 84 tests passing across 20 test files
+- [x] Merged to main
 
 ---
 
