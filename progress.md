@@ -122,6 +122,109 @@ Implement in-browser PDF splitting with multiple split modes and ZIP output.
 
 ---
 
+---
+
+## Step 5: Home Page & Trust Improvements ⬜
+
+Polish the home page and footer to compete on trust and first impressions.
+Sourced from competitive analysis of iLovePDF (May 2026).
+
+### Tasks
+
+**Hero & trust badges**
+- [ ] Add a trust badge row below the stats strip: "🔒 Files never uploaded · ✓ No account · ✓ Free forever"
+- [ ] Review hero copy — ensure the privacy differentiator is the dominant message
+
+**Home page "How it works" section**
+- [ ] Add a 3-step explainer below the tool cards: Drop file → Choose options → Download instantly
+- [ ] Keep it visual (icon + short label per step), consistent with existing how-it-works cards on tool pages
+
+**Tool card descriptions**
+- [ ] Compress card: add detail line "3 quality levels · No file size limit"
+- [ ] Merge card: add detail line "2–10 files · Drag to reorder"
+- [ ] Split card: add detail line "By range, every N pages, or all · ZIP output"
+
+**Footer social & counter**
+- [ ] Add social media link(s) to footer (at minimum Twitter/X)
+- [ ] Add a static "X PDFs processed" counter to the home page (can be hardcoded/estimated initially)
+
+---
+
+## Step 6: Extract Pages Tool ⬜
+
+Add a dedicated "Extract Pages" tool — the most common iLovePDF feature not yet in PDFNip.
+Extracts a user-defined subset of pages from a PDF into a new PDF (single output, not ZIP).
+
+### Tasks
+- [ ] Implement `src/tools/extract.ts` — extract specific pages using pdf-lib
+  - [ ] Accept page range input (e.g. "1-3, 5")
+  - [ ] Return a single merged PDF containing only those pages
+- [ ] Build Extract page UI (mirrors Compress page structure)
+  - [ ] File drop / selection (single PDF, max 100MB)
+  - [ ] Page range input with live page count display
+  - [ ] "Extract" action button
+  - [ ] Processing / loading state with progress
+  - [ ] Download button for extracted PDF
+  - [ ] Error state (invalid file, invalid range, out-of-range pages)
+- [ ] Add route `/extract` in `App.tsx`
+- [ ] Add `ExtractCard` to home page tool grid
+- [ ] Mobile responsive layout (375px min-width)
+- [ ] Tests for extract tool logic
+- [ ] Tests for Extract page UI states
+- [ ] Typecheck, build verify, merge to main
+
+---
+
+## Step 7: Rotate PDF Tool ⬜
+
+Add a "Rotate PDF" tool — simple, high-demand, fully doable in-browser with pdf-lib.
+Lets users rotate individual pages or all pages by 90°/180°/270°.
+
+### Tasks
+- [ ] Implement `src/tools/rotate.ts` — page rotation using pdf-lib
+  - [ ] Support per-page rotation: 90°, 180°, 270° (clockwise)
+  - [ ] Support "rotate all pages" shortcut
+  - [ ] Return a new PDF with updated page rotations
+- [ ] Build Rotate page UI
+  - [ ] File drop / selection (single PDF, max 100MB)
+  - [ ] Page thumbnails list with individual rotation controls (or simpler: rotate all)
+  - [ ] "Rotate all" shortcut buttons (90° CW, 180°, 90° CCW)
+  - [ ] "Apply & Download" action button
+  - [ ] Processing / loading state
+  - [ ] Download button for rotated PDF
+  - [ ] Error state (invalid file, oversized)
+- [ ] Add route `/rotate` in `App.tsx`
+- [ ] Add `RotateCard` to home page tool grid
+- [ ] Mobile responsive layout (375px min-width)
+- [ ] Tests for rotate tool logic
+- [ ] Tests for Rotate page UI states
+- [ ] Typecheck, build verify, merge to main
+
+---
+
+## Step 8: PDF Conversion (Long-term) ⬜
+
+Add PDF ↔ other format conversion. This is iLovePDF's highest-traffic feature category.
+Note: true conversion (PDF→Word, PDF→Excel) cannot be done purely in-browser with current
+browser APIs — requires either a WASM-based library or a server-side component. Evaluate
+options before committing to an approach.
+
+### Options to evaluate
+- [ ] **PDF → Images (JPG/PNG):** Fully doable in-browser via PDF.js canvas render — low effort
+- [ ] **Images → PDF:** Fully doable in-browser via pdf-lib — low effort
+- [ ] **PDF → Word/Excel:** Requires WASM library (e.g. pdf2docx via Pyodide) or a server endpoint — high effort, breaks browser-only constraint
+- [ ] Decide on scope and update this step before implementation
+
+### Tasks (pending scope decision)
+- [ ] Research WASM-based conversion libraries (size, license, browser support)
+- [ ] Prototype PDF → JPG using existing PDF.js dependency
+- [ ] Prototype Images → PDF using existing pdf-lib dependency
+- [ ] If server-side needed: evaluate privacy implications vs. browser-only brand promise
+- [ ] Implement chosen conversion tools
+- [ ] Tests, build verify, merge to main
+
+---
+
 ## Legend
 
 | Symbol | Meaning |
