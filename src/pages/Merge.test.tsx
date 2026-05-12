@@ -121,13 +121,13 @@ it('download link has download="merged.pdf"', async () => {
   expect(screen.getByRole('link', { name: 'Download' })).toHaveAttribute('download', 'merged.pdf')
 })
 
-it('"Merge another PDFs" resets to idle', async () => {
+it('"Merge more PDFs" resets to idle', async () => {
   mockMerge.mockResolvedValue(new ArrayBuffer(2048))
   render(<Merge />)
   dropFiles([makePDF('a.pdf'), makePDF('b.pdf')])
   fireEvent.click(screen.getByRole('button', { name: 'Merge' }))
   await waitFor(() => screen.getByText('Download'))
-  fireEvent.click(screen.getByRole('button', { name: /merge another/i }))
+  fireEvent.click(screen.getByRole('button', { name: /merge more/i }))
   expect(screen.getByTestId('dropzone')).toBeInTheDocument()
 })
 

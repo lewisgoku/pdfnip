@@ -17,7 +17,16 @@ export async function mergePDFs(
 
   for (let i = 0; i < files.length; i++) {
     const arrayBuffer = await files[i].arrayBuffer()
-    const srcDoc = await PDFDocument.load(arrayBuffer)
+    let srcDoc
+    try {
+      srcDoc = await PDFDocument.load(arrayBuffer)
+    } catch (e) {
+      const msg = e instanceof Error ? e.message.toLowerCase() : ''
+      if (msg.includes('encrypt') || msg.includes('password')) {
+        throw new Error('One or more PDFs are password-protected and cannot be merged.')
+      }
+      throw e
+    }
     const pages = await outputDoc.copyPages(srcDoc, srcDoc.getPageIndices())
     for (const page of pages) {
       outputDoc.addPage(page)

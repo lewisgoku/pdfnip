@@ -243,7 +243,7 @@ export default function Merge() {
             onClick={handleReset}
             className="w-full py-2 text-gray-400 text-sm hover:text-white transition-colors"
           >
-            Merge another PDFs
+            Merge more PDFs
           </button>
         </div>
       )}
