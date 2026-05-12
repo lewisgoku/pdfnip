@@ -140,6 +140,23 @@ export default function Merge() {
           <p className="text-gray-600 text-xs mt-3">
             Your file never leaves your browser.
           </p>
+          <div className="mt-8 grid grid-cols-3 gap-4 text-center">
+            <div className="bg-surface rounded-xl p-4">
+              <p className="text-2xl mb-2">📂</p>
+              <p className="text-white text-xs font-medium mb-1">Drop your PDFs</p>
+              <p className="text-gray-500 text-xs">Add 2–10 PDF files, up to 100 MB each</p>
+            </div>
+            <div className="bg-surface rounded-xl p-4">
+              <p className="text-2xl mb-2">↕️</p>
+              <p className="text-white text-xs font-medium mb-1">Reorder</p>
+              <p className="text-gray-500 text-xs">Drag files into the order you want</p>
+            </div>
+            <div className="bg-surface rounded-xl p-4">
+              <p className="text-2xl mb-2">⬇️</p>
+              <p className="text-white text-xs font-medium mb-1">Download</p>
+              <p className="text-gray-500 text-xs">Get one merged PDF instantly</p>
+            </div>
+          </div>
         </>
       )}
 
