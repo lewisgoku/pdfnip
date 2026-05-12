@@ -6,6 +6,11 @@ vi.mock('./tools/compress', () => ({
   compressPDF: vi.fn(),
 }))
 
+vi.mock('./tools/merge', () => ({
+  mergePDFs: vi.fn(),
+  getPageCount: vi.fn(),
+}))
+
 it('renders Home page at root route', () => {
   render(<App />)
   expect(screen.getByText('What do you need to do?')).toBeInTheDocument()

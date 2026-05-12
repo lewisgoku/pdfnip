@@ -8,6 +8,11 @@ vi.mock('../tools/compress', () => ({
   compressPDF: vi.fn(),
 }))
 
+vi.mock('../tools/merge', () => ({
+  mergePDFs: vi.fn(),
+  getPageCount: vi.fn(),
+}))
+
 it('Compress page renders heading and drop zone', () => {
   render(<Compress />)
   expect(screen.getByText('Compress PDF')).toBeInTheDocument()
