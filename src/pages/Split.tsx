@@ -31,7 +31,8 @@ export default function Split() {
 
   const downloadUrl = useMemo(() => {
     if (!result) return null
-    return URL.createObjectURL(new Blob([result], { type: 'application/zip' }))
+    const blob = new Blob([new Uint8Array(result)], { type: 'application/zip' })
+    return URL.createObjectURL(blob)
   }, [result])
 
   useEffect(() => {
@@ -204,7 +205,7 @@ export default function Split() {
 
           <button
             onClick={handleSplit}
-            disabled={status === 'splitting'}
+            disabled={status !== 'ready'}
             className="w-full py-3 rounded-full bg-primary text-bg font-semibold text-sm hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Split
