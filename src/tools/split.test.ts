@@ -18,14 +18,14 @@ vi.mock('pdf-lib', () => {
 })
 
 vi.mock('jszip', () => {
-  const mockZip = {
-    file: vi.fn(),
-    generateAsync: vi.fn().mockResolvedValue(new Uint8Array([4, 5, 6])),
+  class MockJSZip {
+    file = vi.fn()
+    generateAsync = vi.fn().mockResolvedValue(new Uint8Array([4, 5, 6]))
   }
-  return { default: vi.fn().mockReturnValue(mockZip) }
+  return { default: MockJSZip }
 })
 
-import { parsePageRanges, groupsEveryN, allPagesGroups } from './split'
+import { parsePageRanges, groupsEveryN, allPagesGroups, splitPDF, getPageCount } from './split'
 
 describe('parsePageRanges', () => {
   it('parses a single page', () => {
@@ -74,5 +74,29 @@ describe('groupsEveryN', () => {
 describe('allPagesGroups', () => {
   it('returns one group per page', () => {
     expect(allPagesGroups(3)).toEqual([[1], [2], [3]])
+  })
+})
+
+describe('getPageCount', () => {
+  it('returns the page count for a valid PDF', async () => {
+    const file = new File([new ArrayBuffer(1024)], 'doc.pdf', { type: 'application/pdf' })
+    expect(await getPageCount(file)).toBe(5)
+  })
+})
+
+describe('splitPDF', () => {
+  it('returns a Uint8Array', async () => {
+    const file = new File([new ArrayBuffer(1024)], 'doc.pdf', { type: 'application/pdf' })
+    const result = await splitPDF(file, [[1, 2], [3]])
+    expect(result).toBeInstanceOf(Uint8Array)
+  })
+
+  it('calls onProgress once per group', async () => {
+    const file = new File([new ArrayBuffer(1024)], 'doc.pdf', { type: 'application/pdf' })
+    const onProgress = vi.fn()
+    await splitPDF(file, [[1], [2], [3]], onProgress)
+    expect(onProgress).toHaveBeenCalledTimes(3)
+    expect(onProgress).toHaveBeenNthCalledWith(1, 1, 3)
+    expect(onProgress).toHaveBeenNthCalledWith(3, 3, 3)
   })
 })
