@@ -94,30 +94,31 @@ Implement in-browser PDF merging with drag-to-reorder.
 
 ---
 
-## Step 4: Split Tool ⬜
+## Step 4: Split Tool ✅
 
 Implement in-browser PDF splitting with multiple split modes and ZIP output.
 
 ### Tasks
-- [ ] Install JSZip
-- [ ] Implement `src/tools/split.ts` — split logic using pdf-lib
-  - [ ] Mode: by page range (e.g. "1-3, 5")
-  - [ ] Mode: every N pages
-  - [ ] Mode: extract single pages (all pages as individual PDFs)
-- [ ] Wire up real `DropZone` on the Split page (single file, PDF only)
-- [ ] Build Split page UI
-  - [ ] File drop / selection (single PDF, max 100MB)
-  - [ ] Split mode selector (Page range / Every N pages / All pages)
-  - [ ] Mode-specific input (range string, N value)
-  - [ ] "Split" action button
-  - [ ] Processing / loading state
-  - [ ] Download button for ZIP file containing split PDFs
-  - [ ] Error state (invalid file, invalid range, oversized)
-- [ ] Mobile responsive layout (375px min-width)
-- [ ] Tests for split tool logic
-- [ ] Tests for Split page UI states
-- [ ] Typecheck and build verify
-- [ ] Merged to master
+- [x] Install JSZip
+- [x] Implement `src/tools/split.ts` — split logic using pdf-lib
+  - [x] Mode: by page range (e.g. "1-3, 5")
+  - [x] Mode: every N pages
+  - [x] Mode: extract single pages (all pages as individual PDFs)
+- [x] Wire up real `DropZone` on the Split page (single file, PDF only)
+- [x] Build Split page UI
+  - [x] File drop / selection (single PDF, max 100MB)
+  - [x] Split mode selector (Page range / Every N pages / All pages)
+  - [x] Mode-specific input (range string, N value)
+  - [x] "Split" action button
+  - [x] Processing / loading state
+  - [x] Download button for ZIP file containing split PDFs
+  - [x] Error state (invalid file, invalid range, oversized)
+- [x] Mobile responsive layout (375px min-width)
+- [x] Tests for split tool logic
+- [x] Tests for Split page UI states
+- [x] 90 tests passing across 14 test files
+- [x] Typecheck and build verify
+- [x] Merged to main
 
 ---
 
