@@ -37,7 +37,7 @@ export default function DropZone({
       onDrop={(e) => {
         e.preventDefault()
         setIsDragging(false)
-        handleFiles(e.dataTransfer.files)
+        handleFiles(e.dataTransfer?.files ?? null)
       }}
       className={`flex items-center justify-center w-full h-48 border-2 border-dashed rounded-xl cursor-pointer transition-colors ${
         isDragging ? 'border-primary' : 'border-gray-600'
