@@ -53,8 +53,8 @@ it('renders idle state with DropZone and privacy note', () => {
 
 it('renders how-it-works guide in idle state', () => {
   render(<Split />)
-  expect(screen.getAllByText(/drop your pdf/i)).toHaveLength(2)
   expect(screen.getByText(/choose how to split/i)).toBeInTheDocument()
+  expect(screen.getByText(/page range, every n pages/i)).toBeInTheDocument()
 })
 
 it('transitions to ready state after dropping a valid PDF', () => {
@@ -69,6 +69,15 @@ it('shows error for non-PDF file', () => {
   const txt = new File(['text'], 'doc.txt', { type: 'text/plain' })
   dropFile(txt)
   expect(screen.getByText('Please select a valid PDF file.')).toBeInTheDocument()
+})
+
+it('shows error for file over 100MB', () => {
+  render(<Split />)
+  const big = new File([new ArrayBuffer(101 * 1024 * 1024)], 'big.pdf', {
+    type: 'application/pdf',
+  })
+  dropFile(big)
+  expect(screen.getByText('File is too large (max 100MB).')).toBeInTheDocument()
 })
 
 it('mode selector switches to Every N pages', () => {
