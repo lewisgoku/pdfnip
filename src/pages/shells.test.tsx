@@ -1,7 +1,12 @@
+import { vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import Compress from './Compress'
 import Merge from './Merge'
 import Split from './Split'
+
+vi.mock('../tools/compress', () => ({
+  compressPDF: vi.fn(),
+}))
 
 it('Compress page renders heading and drop zone', () => {
   render(<Compress />)
