@@ -29,3 +29,9 @@ it('tool cards link to correct routes', () => {
   expect(screen.getByRole('link', { name: /merge/i })).toHaveAttribute('href', '/merge')
   expect(screen.getByRole('link', { name: /split/i })).toHaveAttribute('href', '/split')
 })
+
+it('renders the pdfs processed counter', () => {
+  renderHome()
+  expect(screen.getByText(/pdfs processed/i)).toBeInTheDocument()
+  expect(screen.getByText(/\d{3},\d{3}\+/)).toBeInTheDocument()
+})

@@ -2,6 +2,8 @@ import { FileDown, GitMerge, Scissors } from 'lucide-react'
 import ToolCard from '../components/ToolCard'
 import PageMeta from '../components/PageMeta'
 
+const PDFS_PROCESSED = '250,000+'
+
 const TOOLS = [
   {
     title: 'Compress',
@@ -52,6 +54,9 @@ export default function Home() {
           <span className="w-1 h-1 rounded-full bg-gray-600" />
           <span className="text-primary font-medium">100% private</span>
         </div>
+        <p className="text-gray-500 text-xs mt-5">
+          <span className="text-white font-semibold">{PDFS_PROCESSED}</span> PDFs processed
+        </p>
       </div>
       <p className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Choose a tool</p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
