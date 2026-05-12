@@ -174,8 +174,9 @@ export default function Split() {
 
           {mode === 'range' && (
             <div>
-              <label className="text-gray-400 text-sm block mb-2">Page range</label>
+              <label htmlFor="range-input" className="text-gray-400 text-sm block mb-2">Page range</label>
               <input
+                id="range-input"
                 type="text"
                 value={rangeInput}
                 onChange={(e) => setRangeInput(e.target.value)}
@@ -187,8 +188,9 @@ export default function Split() {
 
           {mode === 'every-n' && (
             <div>
-              <label className="text-gray-400 text-sm block mb-2">Every N pages</label>
+              <label htmlFor="every-n-input" className="text-gray-400 text-sm block mb-2">Every N pages</label>
               <input
+                id="every-n-input"
                 type="number"
                 min={1}
                 value={everyN}
