@@ -69,27 +69,28 @@ Implement in-browser PDF compression using canvas re-render approach.
 
 ---
 
-## Step 3: Merge Tool ⬜
+## Step 3: Merge Tool ✅
 
 Implement in-browser PDF merging with drag-to-reorder.
 
 ### Tasks
-- [ ] Install pdf-lib
-- [ ] Implement `src/tools/merge.ts` — multi-file merge logic using pdf-lib
-- [ ] Wire up real `DropZone` on the Merge page (multiple files, PDF only, 2–10 files)
-- [ ] Build Merge page UI
-  - [ ] Multi-file drop / selection (2–10 PDFs, max 100MB each)
-  - [ ] File list with drag-to-reorder
-  - [ ] File removal per item
-  - [ ] "Merge" action button
-  - [ ] Processing / loading state
-  - [ ] Download button for merged PDF
-  - [ ] Error state (invalid file, too few / too many files, oversized)
-- [ ] Mobile responsive layout (375px min-width)
-- [ ] Tests for merge tool logic
-- [ ] Tests for Merge page UI states
-- [ ] Typecheck and build verify
-- [ ] Merged to master
+- [x] Install pdf-lib
+- [x] Implement `src/tools/merge.ts` — multi-file merge logic using pdf-lib
+- [x] Wire up real `DropZone` on the Merge page (multiple files, PDF only, 2–10 files)
+- [x] Build Merge page UI
+  - [x] Multi-file drop / selection (2–10 PDFs, max 100MB each)
+  - [x] File list with drag-to-reorder
+  - [x] File removal per item
+  - [x] "Merge" action button
+  - [x] Processing / loading state
+  - [x] Download button for merged PDF
+  - [x] Error state (invalid file, too few / too many files, oversized)
+- [x] Mobile responsive layout (375px min-width)
+- [x] Tests for merge tool logic
+- [x] Tests for Merge page UI states
+- [x] Typecheck and build verify
+- [x] 60 tests passing across 12 test files
+- [x] Merged to main
 
 ---
 
