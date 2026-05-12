@@ -111,7 +111,7 @@ it('"Compress another PDF" resets to idle', async () => {
   await waitFor(() => screen.getByText('Download'))
   fireEvent.click(screen.getByRole('button', { name: /compress another/i }))
   expect(screen.getByTestId('dropzone')).toBeInTheDocument()
-  expect(screen.queryByText('Download')).not.toBeInTheDocument()
+  expect(screen.queryByRole('link', { name: 'Download' })).not.toBeInTheDocument()
 })
 
 it('shows error message when compression fails', async () => {

@@ -16,17 +16,17 @@ vi.mock('../tools/merge', () => ({
 it('Compress page renders heading and drop zone', () => {
   render(<Compress />)
   expect(screen.getByText('Compress PDF')).toBeInTheDocument()
-  expect(screen.getByText(/drop your pdf/i)).toBeInTheDocument()
+  expect(screen.getByTestId('dropzone')).toBeInTheDocument()
 })
 
 it('Merge page renders heading and drop zone', () => {
   render(<Merge />)
   expect(screen.getByText('Merge PDFs')).toBeInTheDocument()
-  expect(screen.getByText(/drop your pdf/i)).toBeInTheDocument()
+  expect(screen.getByTestId('dropzone')).toBeInTheDocument()
 })
 
 it('Split page renders heading and drop zone', () => {
   render(<Split />)
   expect(screen.getByText('Split PDF')).toBeInTheDocument()
-  expect(screen.getByText(/drop your pdf/i)).toBeInTheDocument()
+  expect(screen.getByTestId('dropzone')).toBeInTheDocument()
 })
