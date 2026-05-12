@@ -86,7 +86,7 @@ export default function Compress() {
   return (
     <div className="max-w-2xl mx-auto px-4 py-12">
       <PageMeta
-        title="Compress PDF Free — Reduce PDF File Size | PDFNip"
+        title="PDFNip | Compress PDF"
         description="Reduce your PDF file size for free, instantly in your browser. Choose Low, Medium, or High compression. No uploads, no account needed."
         path="/compress"
       />
@@ -100,7 +100,7 @@ export default function Compress() {
           <DropZone accept="application/pdf" onFiles={handleFiles} />
           {error && <p className="text-red-400 text-sm mt-3">{error}</p>}
           <p className="text-gray-600 text-xs mt-3">
-            Your file never leaves your browser.
+            Your file never leaves your browser · Ads keep this tool free.
           </p>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
             <div className="bg-surface rounded-xl p-4">

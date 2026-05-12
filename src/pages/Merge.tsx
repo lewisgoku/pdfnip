@@ -124,7 +124,7 @@ export default function Merge() {
   return (
     <div className="max-w-2xl mx-auto px-4 py-12">
       <PageMeta
-        title="Merge PDFs Free — Combine PDF Files Online | PDFNip"
+        title="PDFNip | Merge PDFs"
         description="Combine multiple PDF files into one document for free, right in your browser. Drag to reorder pages. No uploads, no account needed."
         path="/merge"
       />
@@ -144,7 +144,7 @@ export default function Merge() {
           />
           {error && <p className="text-red-400 text-sm mt-3">{error}</p>}
           <p className="text-gray-600 text-xs mt-3">
-            Your file never leaves your browser.
+            Your files never leave your browser · Ads keep this tool free.
           </p>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
             <div className="bg-surface rounded-xl p-4">

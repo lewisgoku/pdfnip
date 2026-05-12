@@ -116,7 +116,7 @@ export default function Split() {
   return (
     <div className="max-w-2xl mx-auto px-4 py-12">
       <PageMeta
-        title="Split PDF Free — Extract Pages & Split by Range | PDFNip"
+        title="PDFNip | Split PDF"
         description="Split a PDF into separate files for free, instantly in your browser. Split by page range, every N pages, or extract all pages. No uploads needed."
         path="/split"
       />
@@ -129,7 +129,7 @@ export default function Split() {
         <>
           <DropZone accept="application/pdf" onFiles={handleFiles} />
           {error && <p className="text-red-400 text-sm mt-3">{error}</p>}
-          <p className="text-gray-600 text-xs mt-3">Your file never leaves your browser.</p>
+          <p className="text-gray-600 text-xs mt-3">Your file never leaves your browser · Ads keep this tool free.</p>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
             <div className="bg-surface rounded-xl p-4">
               <p className="text-2xl mb-2">📄</p>

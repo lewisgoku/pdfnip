@@ -4,7 +4,7 @@ export default function Terms() {
   return (
     <div className="max-w-2xl mx-auto px-4 py-12">
       <PageMeta
-        title="Terms of Use | PDFNip"
+        title="PDFNip | Terms of Use"
         description="Read the PDFNip terms of use. Free to use for personal and commercial purposes. No warranty provided."
         path="/terms"
       />
