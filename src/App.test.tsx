@@ -11,6 +11,14 @@ vi.mock('./tools/merge', () => ({
   getPageCount: vi.fn(),
 }))
 
+vi.mock('./tools/split', () => ({
+  parsePageRanges: vi.fn(),
+  groupsEveryN: vi.fn(),
+  allPagesGroups: vi.fn(),
+  splitPDF: vi.fn(),
+  getPageCount: vi.fn(),
+}))
+
 it('renders Home page at root route', () => {
   render(<App />)
   expect(screen.getByText('What do you need to do?')).toBeInTheDocument()
