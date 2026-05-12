@@ -41,30 +41,30 @@ Small improvements added outside of the main steps.
 
 ---
 
-## Step 2: Compress Tool ⬜
+## Step 2: Compress Tool ✅
 
 Implement in-browser PDF compression using canvas re-render approach.
 
 ### Tasks
-- [ ] Install PDF.js for rendering PDF pages to canvas
-- [ ] Implement `src/tools/compress.ts` — canvas re-render compression logic
-  - [ ] Render each PDF page via PDF.js to an off-screen canvas
-  - [ ] Export canvas frames back to a new PDF via pdf-lib
-  - [ ] Support three quality levels: Low (screen), Medium (balanced), High (max compression)
-- [ ] Wire up real `DropZone` on the Compress page (single file, PDF only)
-- [ ] Build Compress page UI
-  - [ ] File drop / selection (PDF, max 100MB)
-  - [ ] Quality level selector (Low / Medium / High)
-  - [ ] "Compress" action button
-  - [ ] Processing / loading state
-  - [ ] Before/after file size display
-  - [ ] Download button for compressed PDF
-  - [ ] Error state (invalid file, oversized file)
-- [ ] Mobile responsive layout (375px min-width)
-- [ ] Tests for compression tool logic
-- [ ] Tests for Compress page UI states
-- [ ] Typecheck and build verify
-- [ ] Merged to master
+- [x] Install PDF.js for rendering PDF pages to canvas
+- [x] Implement `src/tools/compress.ts` — canvas re-render compression logic
+  - [x] Render each PDF page via PDF.js to an off-screen canvas
+  - [x] Export canvas frames back to a new PDF via pdf-lib
+  - [x] Support three quality levels: Low (screen), Medium (balanced), High (max compression)
+- [x] Wire up real `DropZone` on the Compress page (single file, PDF only)
+- [x] Build Compress page UI
+  - [x] File drop / selection (PDF, max 100MB)
+  - [x] Quality level selector (Low / Medium / High)
+  - [x] "Compress" action button
+  - [x] Processing / loading state
+  - [x] Before/after file size display
+  - [x] Download button for compressed PDF
+  - [x] Error state (invalid file, oversized file)
+- [x] Mobile responsive layout (375px min-width)
+- [x] Tests for compression tool logic
+- [x] Tests for Compress page UI states
+- [x] Typecheck and build verify
+- [x] Merged to master
 
 ---
 
