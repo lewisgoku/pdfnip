@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo, useRef } from 'react'
 import DropZone from '../components/DropZone'
 import { mergePDFs, getPageCount } from '../tools/merge'
 import { formatBytes } from '../utils/formatBytes'
+import PageMeta from '../components/PageMeta'
 
 type Status = 'idle' | 'ready' | 'merging' | 'done' | 'error'
 
@@ -122,6 +123,11 @@ export default function Merge() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-12">
+      <PageMeta
+        title="Merge PDFs Free — Combine PDF Files Online | PDFNip"
+        description="Combine multiple PDF files into one document for free, right in your browser. Drag to reorder pages. No uploads, no account needed."
+        path="/merge"
+      />
       <h1 className="text-2xl font-semibold text-white mb-2">Merge PDFs</h1>
       <p className="text-gray-400 mb-8">
         Combine multiple PDF files into one — all processing happens in your
@@ -140,7 +146,7 @@ export default function Merge() {
           <p className="text-gray-600 text-xs mt-3">
             Your file never leaves your browser.
           </p>
-          <div className="mt-8 grid grid-cols-3 gap-4 text-center">
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
             <div className="bg-surface rounded-xl p-4">
               <p className="text-2xl mb-2">📂</p>
               <p className="text-white text-xs font-medium mb-1">Drop your PDFs</p>

@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react'
 import DropZone from '../components/DropZone'
 import { compressPDF, type Quality } from '../tools/compress'
 import { formatBytes } from '../utils/formatBytes'
+import PageMeta from '../components/PageMeta'
 
 type Status = 'idle' | 'ready' | 'compressing' | 'done' | 'error'
 
@@ -84,6 +85,11 @@ export default function Compress() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-12">
+      <PageMeta
+        title="Compress PDF Free — Reduce PDF File Size | PDFNip"
+        description="Reduce your PDF file size for free, instantly in your browser. Choose Low, Medium, or High compression. No uploads, no account needed."
+        path="/compress"
+      />
       <h1 className="text-2xl font-semibold text-white mb-2">Compress PDF</h1>
       <p className="text-gray-400 mb-8">
         Reduce your PDF file size — all processing happens in your browser.
@@ -96,7 +102,7 @@ export default function Compress() {
           <p className="text-gray-600 text-xs mt-3">
             Your file never leaves your browser.
           </p>
-          <div className="mt-8 grid grid-cols-3 gap-4 text-center">
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
             <div className="bg-surface rounded-xl p-4">
               <p className="text-2xl mb-2">📄</p>
               <p className="text-white text-xs font-medium mb-1">Drop your PDF</p>

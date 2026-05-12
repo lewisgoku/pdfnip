@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import DropZone from '../components/DropZone'
+import PageMeta from '../components/PageMeta'
 import {
   parsePageRanges,
   groupsEveryN,
@@ -114,6 +115,11 @@ export default function Split() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-12">
+      <PageMeta
+        title="Split PDF Free — Extract Pages & Split by Range | PDFNip"
+        description="Split a PDF into separate files for free, instantly in your browser. Split by page range, every N pages, or extract all pages. No uploads needed."
+        path="/split"
+      />
       <h1 className="text-2xl font-semibold text-white mb-2">Split PDF</h1>
       <p className="text-gray-400 mb-8">
         Extract pages or split into parts — all processing happens in your browser.
@@ -124,7 +130,7 @@ export default function Split() {
           <DropZone accept="application/pdf" onFiles={handleFiles} />
           {error && <p className="text-red-400 text-sm mt-3">{error}</p>}
           <p className="text-gray-600 text-xs mt-3">Your file never leaves your browser.</p>
-          <div className="mt-8 grid grid-cols-3 gap-4 text-center">
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
             <div className="bg-surface rounded-xl p-4">
               <p className="text-2xl mb-2">📄</p>
               <p className="text-white text-xs font-medium mb-1">Drop your PDF</p>
