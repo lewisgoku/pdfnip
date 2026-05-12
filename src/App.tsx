@@ -4,6 +4,8 @@ import Home from './pages/Home'
 import Compress from './pages/Compress'
 import Merge from './pages/Merge'
 import Split from './pages/Split'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import Terms from './pages/Terms'
 
 const router = createBrowserRouter([
   {
@@ -14,6 +16,8 @@ const router = createBrowserRouter([
       { path: 'compress', element: <Compress /> },
       { path: 'merge', element: <Merge /> },
       { path: 'split', element: <Split /> },
+      { path: 'privacy', element: <PrivacyPolicy /> },
+      { path: 'terms', element: <Terms /> },
     ],
   },
 ])
