@@ -9,9 +9,12 @@ export function parsePageRanges(input: string, totalPages: number): number[][] {
   return trimmed.split(',').map((token) => {
     const part = token.trim()
     if (part.includes('-')) {
-      const [startStr, endStr] = part.split('-')
+      const segments = part.split('-')
+      if (segments.length !== 2) throw new Error(`Invalid range: ${part}`)
+      const [startStr, endStr] = segments
       const start = parseInt(startStr, 10)
       const end = parseInt(endStr, 10)
+      if (Number.isNaN(start) || Number.isNaN(end)) throw new Error(`Invalid range: ${part}`)
       if (start > end) throw new Error(`Invalid range: ${part}`)
       if (start < 1 || end > totalPages) {
         const bad = start < 1 ? start : end
@@ -20,6 +23,7 @@ export function parsePageRanges(input: string, totalPages: number): number[][] {
       return Array.from({ length: end - start + 1 }, (_, i) => start + i)
     } else {
       const page = parseInt(part, 10)
+      if (Number.isNaN(page)) throw new Error(`Invalid page: ${part}`)
       if (page < 1 || page > totalPages) throw new Error(`Page ${page} out of range`)
       return [page]
     }
@@ -53,7 +57,7 @@ export async function splitPDF(
   onProgress?: (current: number, total: number) => void,
 ): Promise<Uint8Array> {
   const arrayBuffer = await file.arrayBuffer()
-  const srcDoc = await PDFDocument.load(arrayBuffer)
+  const srcDoc = await PDFDocument.load(arrayBuffer, { ignoreEncryption: true })
   const base = file.name.replace(/\.pdf$/i, '')
   const zip = new JSZip()
 
