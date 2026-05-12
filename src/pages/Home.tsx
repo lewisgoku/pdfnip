@@ -1,5 +1,6 @@
 import { FileDown, GitMerge, Scissors } from 'lucide-react'
 import ToolCard from '../components/ToolCard'
+import PageMeta from '../components/PageMeta'
 
 const TOOLS = [
   {
@@ -25,7 +26,31 @@ const TOOLS = [
 export default function Home() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
-      <h1 className="text-2xl font-semibold text-white mb-8">What do you need to do?</h1>
+      <PageMeta
+        title="PDFNip — Free PDF Tools | Compress, Merge & Split"
+        description="Free, private PDF tools that run entirely in your browser. Compress, merge, and split PDFs — no uploads, no account required."
+        path="/"
+      />
+      <div className="mb-14 text-center">
+        <span className="inline-block border border-primary text-primary text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-6">
+          Free · Private · No account
+        </span>
+        <h1 className="text-5xl md:text-6xl font-bold text-white mb-5 tracking-tight leading-tight">
+          Trim. Merge.{' '}
+          <span className="text-primary">Split.</span>
+        </h1>
+        <p className="text-gray-400 text-lg max-w-sm mx-auto leading-relaxed">
+          Your files never leave your device.
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 mt-6 text-sm text-gray-500">
+          <span>0 uploads</span>
+          <span className="w-1 h-1 rounded-full bg-gray-600" />
+          <span>0 accounts</span>
+          <span className="w-1 h-1 rounded-full bg-gray-600" />
+          <span className="text-primary font-medium">100% private</span>
+        </div>
+      </div>
+      <p className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Choose a tool</p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {TOOLS.map((tool) => (
           <ToolCard key={tool.href} {...tool} />

@@ -10,9 +10,10 @@ function renderHome() {
   )
 }
 
-it('renders the page heading', () => {
+it('renders the hero tagline', () => {
   renderHome()
-  expect(screen.getByText('What do you need to do?')).toBeInTheDocument()
+  expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument()
+  expect(screen.getByText(/trim\. merge\./i)).toBeInTheDocument()
 })
 
 it('renders all three tool cards', () => {

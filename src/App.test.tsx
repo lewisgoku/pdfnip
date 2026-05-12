@@ -21,7 +21,7 @@ vi.mock('./tools/split', () => ({
 
 it('renders Home page at root route', () => {
   render(<App />)
-  expect(screen.getByText('What do you need to do?')).toBeInTheDocument()
+  expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument()
 })
 
 it('renders Navbar on Home', () => {
