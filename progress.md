@@ -124,7 +124,7 @@ Implement in-browser PDF splitting with multiple split modes and ZIP output.
 
 ---
 
-## Step 5: Home Page & Trust Improvements ⬜
+## Step 5: Home Page & Trust Improvements ✅
 
 Polish the home page and footer to compete on trust and first impressions.
 Sourced from competitive analysis of iLovePDF (May 2026).
@@ -132,21 +132,23 @@ Sourced from competitive analysis of iLovePDF (May 2026).
 ### Tasks
 
 **Hero & trust badges**
-- [ ] Add a trust badge row below the stats strip: "🔒 Files never uploaded · ✓ No account · ✓ Free forever"
-- [ ] Review hero copy — ensure the privacy differentiator is the dominant message
+- [x] Add a trust badge row below the stats strip: "🔒 Files never uploaded · ✓ No account · ✓ Free forever"
+- [x] Review hero copy — ensure the privacy differentiator is the dominant message
 
 **Home page "How it works" section**
-- [ ] Add a 3-step explainer below the tool cards: Drop file → Choose options → Download instantly
-- [ ] Keep it visual (icon + short label per step), consistent with existing how-it-works cards on tool pages
+- [x] Add a 3-step explainer below the tool cards: Drop file → Choose options → Download instantly
+- [x] Keep it visual (icon + short label per step), consistent with existing how-it-works cards on tool pages
 
 **Tool card descriptions**
-- [ ] Compress card: add detail line "3 quality levels · No file size limit"
-- [ ] Merge card: add detail line "2–10 files · Drag to reorder"
-- [ ] Split card: add detail line "By range, every N pages, or all · ZIP output"
+- [x] Compress card: add detail line "3 quality levels · No file size limit"
+- [x] Merge card: add detail line "2–10 files · Drag to reorder"
+- [x] Split card: add detail line "By range, every N pages, or all · ZIP output"
 
 **Footer social & counter**
-- [ ] Add social media link(s) to footer (at minimum Twitter/X)
-- [ ] Add a static "X PDFs processed" counter to the home page (can be hardcoded/estimated initially)
+- [x] Add social media link(s) to footer (at minimum Twitter/X)
+- [x] Add a static "X PDFs processed" counter to the home page (can be hardcoded/estimated initially)
+- [x] 198 tests passing across 30 test files
+- [x] Merged to main
 
 ---
 
