@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import DropZone from '../components/DropZone'
-import { compressPDF, Quality } from '../tools/compress'
+import { compressPDF, type Quality } from '../tools/compress'
 import { formatBytes } from '../utils/formatBytes'
 
 type Status = 'idle' | 'ready' | 'compressing' | 'done' | 'error'
