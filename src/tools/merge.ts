@@ -23,7 +23,7 @@ export async function mergePDFs(
     } catch (e) {
       const msg = e instanceof Error ? e.message.toLowerCase() : ''
       if (msg.includes('encrypt') || msg.includes('password')) {
-        throw new Error('One or more PDFs are password-protected and cannot be merged.')
+        throw new Error('One or more PDFs are password-protected and cannot be merged.', { cause: e })
       }
       throw e
     }
