@@ -30,7 +30,7 @@ function makePDF(name = 'test.pdf', size = 1024) {
 it('renders idle state with DropZone and privacy note', () => {
   render(<Merge />)
   expect(screen.getByTestId('dropzone')).toBeInTheDocument()
-  expect(screen.getByText(/never leaves your browser/i)).toBeInTheDocument()
+  expect(screen.getByText(/never leave your browser/i)).toBeInTheDocument()
 })
 
 it('transitions to ready state after dropping 2 valid files', () => {
