@@ -6,6 +6,8 @@ const NAV_LINKS = [
   { to: '/compress', label: 'Compress' },
   { to: '/merge', label: 'Merge' },
   { to: '/split', label: 'Split' },
+  { to: '/extract', label: 'Extract' },
+  { to: '/rotate', label: 'Rotate' },
 ]
 
 const donateClass =
