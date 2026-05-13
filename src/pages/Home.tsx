@@ -1,4 +1,4 @@
-import { FileDown, GitMerge, Scissors, FileOutput, RotateCw } from 'lucide-react'
+import { FileDown, GitMerge, Scissors, FileOutput, RotateCw, ImageDown } from 'lucide-react'
 import ToolCard from '../components/ToolCard'
 import PageMeta from '../components/PageMeta'
 
@@ -40,6 +40,13 @@ const TOOLS = [
     icon: <RotateCw size={32} />,
     href: '/rotate',
   },
+  {
+    title: 'PDF to Images',
+    description: 'Convert every page to JPG or PNG',
+    detail: 'JPG or PNG · Low / Medium / High quality · ZIP output',
+    icon: <ImageDown size={32} />,
+    href: '/pdf-to-images',
+  },
 ]
 
 const STEPS = [
@@ -65,7 +72,7 @@ export default function Home() {
     <div className="max-w-4xl mx-auto px-4 py-12">
       <PageMeta
         title="PDFNip | Free PDF Tools"
-        description="Free PDF tools that run entirely in your browser. Compress, merge, split, extract, and rotate PDFs — your files never leave your device."
+        description="Free PDF tools that run entirely in your browser. Compress, merge, split, extract, rotate PDFs, and convert to images — your files never leave your device."
         path="/"
       />
       <div className="mb-14 text-center">
@@ -91,7 +98,7 @@ export default function Home() {
         </p>
       </div>
       <p className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Choose a tool</p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {TOOLS.map((tool) => (
           <ToolCard key={tool.href} {...tool} />
         ))}
