@@ -207,26 +207,48 @@ Lets users rotate all pages by 90°/180°/270°.
 
 ---
 
-## Step 8: PDF Conversion (Long-term) ⬜
+## Step 8: PDF to Images ✅
 
-Add PDF ↔ other format conversion. This is iLovePDF's highest-traffic feature category.
-Note: true conversion (PDF→Word, PDF→Excel) cannot be done purely in-browser with current
-browser APIs — requires either a WASM-based library or a server-side component. Evaluate
-options before committing to an approach.
+Convert every PDF page to JPG or PNG and download as a ZIP — fully in-browser.
 
-### Options to evaluate
-- [ ] **PDF → Images (JPG/PNG):** Fully doable in-browser via PDF.js canvas render — low effort
-- [ ] **Images → PDF:** Fully doable in-browser via pdf-lib — low effort
-- [ ] **PDF → Word/Excel:** Requires WASM library (e.g. pdf2docx via Pyodide) or a server endpoint — high effort, breaks browser-only constraint
-- [ ] Decide on scope and update this step before implementation
+### Tasks
+- [x] Implement `src/tools/pdfToImages.ts` — PDF.js canvas render → JSZip
+  - [x] JPG output with Low / Medium / High quality (0.60 / 0.82 / 0.95)
+  - [x] PNG output (lossless, always medium scale)
+  - [x] Scale: 1.0× / 1.5× / 2.0× for Low / Medium / High
+  - [x] ZIP output with `page-1.jpg` / `page-1.png` naming
+  - [x] 100 MB file size guard
+- [x] Build PDF to Images page UI
+  - [x] File drop / selection (single PDF, max 100MB)
+  - [x] Format toggle: JPG / PNG
+  - [x] Quality selector: Low / Medium / High (shown for JPG only)
+  - [x] "Convert" action button
+  - [x] Processing / loading state
+  - [x] Download button for ZIP file
+  - [x] Error state (invalid file, oversized, conversion failure)
+- [x] Add route `/pdf-to-images` in `src/App.tsx`
+- [x] Add PDF to Images card to home page tool grid
+- [x] Add PDF to Images link to Navbar
+- [x] Mobile responsive layout (375px min-width)
+- [x] Tests for tool logic (11 tests)
+- [x] Tests for page UI states (14 tests)
+- [x] 474 tests passing across 61 test files
+- [x] Typecheck, build verify, merge to main
 
-### Tasks (pending scope decision)
-- [ ] Research WASM-based conversion libraries (size, license, browser support)
-- [ ] Prototype PDF → JPG using existing PDF.js dependency
-- [ ] Prototype Images → PDF using existing pdf-lib dependency
-- [ ] If server-side needed: evaluate privacy implications vs. browser-only brand promise
-- [ ] Implement chosen conversion tools
-- [ ] Tests, build verify, merge to main
+---
+
+## Step 9: Images to PDF (Next) ⬜
+
+Convert JPG/PNG images to a single PDF — fully in-browser via pdf-lib (already installed).
+
+### Tasks (pending)
+- [ ] Decide on scope and design before implementation
+
+---
+
+## Step 10: PDF → Word/Excel (Long-term) ⬜
+
+Requires WASM library (e.g. pdf2docx via Pyodide) or a server endpoint — high effort, breaks browser-only constraint. Evaluate before committing.
 
 ---
 
