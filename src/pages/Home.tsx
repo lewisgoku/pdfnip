@@ -1,4 +1,4 @@
-import { FileDown, GitMerge, Scissors, FileOutput } from 'lucide-react'
+import { FileDown, GitMerge, Scissors, FileOutput, RotateCw } from 'lucide-react'
 import ToolCard from '../components/ToolCard'
 import PageMeta from '../components/PageMeta'
 
@@ -32,6 +32,13 @@ const TOOLS = [
     detail: 'Page range · Single PDF output',
     icon: <FileOutput size={32} />,
     href: '/extract',
+  },
+  {
+    title: 'Rotate',
+    description: 'Rotate all pages in your PDF',
+    detail: '90° CW, 180°, or 90° CCW',
+    icon: <RotateCw size={32} />,
+    href: '/rotate',
   },
 ]
 
@@ -84,7 +91,7 @@ export default function Home() {
         </p>
       </div>
       <p className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Choose a tool</p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {TOOLS.map((tool) => (
           <ToolCard key={tool.href} {...tool} />
         ))}

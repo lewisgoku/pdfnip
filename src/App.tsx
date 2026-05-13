@@ -5,6 +5,7 @@ import Compress from './pages/Compress'
 import Merge from './pages/Merge'
 import Split from './pages/Split'
 import Extract from './pages/Extract'
+import Rotate from './pages/Rotate'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Terms from './pages/Terms'
 
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
       { path: 'merge', element: <Merge /> },
       { path: 'split', element: <Split /> },
       { path: 'extract', element: <Extract /> },
+      { path: 'rotate', element: <Rotate /> },
       { path: 'privacy', element: <PrivacyPolicy /> },
       { path: 'terms', element: <Terms /> },
     ],

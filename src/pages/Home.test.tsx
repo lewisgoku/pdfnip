@@ -47,3 +47,18 @@ it('renders all three how-it-works steps', () => {
   expect(screen.getByText('Choose your options')).toBeInTheDocument()
   expect(screen.getByText('Download instantly')).toBeInTheDocument()
 })
+
+it('renders Extract and Rotate tool cards', () => {
+  renderHome()
+  expect(screen.getByText('Extract')).toBeInTheDocument()
+  expect(screen.getByText('Rotate')).toBeInTheDocument()
+})
+
+it('Extract and Rotate cards link to correct routes', () => {
+  renderHome()
+  const links = screen.getAllByRole('link')
+  const extractLink = links.find((l) => l.getAttribute('href') === '/extract')
+  const rotateLink = links.find((l) => l.getAttribute('href') === '/rotate')
+  expect(extractLink).toBeInTheDocument()
+  expect(rotateLink).toBeInTheDocument()
+})
