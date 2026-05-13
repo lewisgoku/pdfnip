@@ -16,7 +16,7 @@ it('renders the hero tagline', () => {
   expect(screen.getByText(/trim\. merge\./i)).toBeInTheDocument()
 })
 
-it('renders all three tool cards', () => {
+it('renders Compress, Merge, and Split tool cards', () => {
   renderHome()
   expect(screen.getByText('Compress')).toBeInTheDocument()
   expect(screen.getByText('Merge')).toBeInTheDocument()
@@ -67,7 +67,8 @@ it('renders PDF to Images tool card', () => {
 
 it('PDF to Images card links to correct route', () => {
   renderHome()
-  const links = screen.getAllByRole('link')
-  const link = links.find((l) => l.getAttribute('href') === '/pdf-to-images')
-  expect(link).toBeInTheDocument()
+  expect(screen.getByRole('link', { name: /pdf to images/i })).toHaveAttribute(
+    'href',
+    '/pdf-to-images',
+  )
 })
