@@ -1,4 +1,4 @@
-import { FileDown, GitMerge, Scissors } from 'lucide-react'
+import { FileDown, GitMerge, Scissors, FileOutput } from 'lucide-react'
 import ToolCard from '../components/ToolCard'
 import PageMeta from '../components/PageMeta'
 
@@ -25,6 +25,13 @@ const TOOLS = [
     detail: 'By range, every N pages, or all · ZIP output',
     icon: <Scissors size={32} />,
     href: '/split',
+  },
+  {
+    title: 'Extract',
+    description: 'Pull specific pages into a new PDF',
+    detail: 'Page range · Single PDF output',
+    icon: <FileOutput size={32} />,
+    href: '/extract',
   },
 ]
 
