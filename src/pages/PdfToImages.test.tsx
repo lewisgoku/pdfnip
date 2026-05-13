@@ -118,3 +118,14 @@ it('shows error when conversion fails', async () => {
     expect(screen.getByText('Something went wrong. Please try again.')).toBeInTheDocument(),
   )
 })
+
+it('switching back to JPG after PNG still converts successfully', async () => {
+  render(<PdfToImages />)
+  dropFile(makePDF('report.pdf'))
+  fireEvent.click(screen.getByRole('button', { name: 'PNG' }))
+  fireEvent.click(screen.getByRole('button', { name: 'JPG' }))
+  expect(screen.getByText('Quality')).toBeInTheDocument()
+  fireEvent.click(screen.getByRole('button', { name: /^Convert$/ }))
+  await waitFor(() => screen.getByText('Download'))
+  expect(screen.getByRole('link', { name: 'Download' })).toBeInTheDocument()
+})

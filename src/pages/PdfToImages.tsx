@@ -57,9 +57,11 @@ export default function PdfToImages() {
 
   async function handleConvert() {
     if (!file) return
+    setError(null)
     setStatus('converting')
+    const effectiveQuality = format === 'png' ? 'medium' : quality
     try {
-      const output = await pdfToImages(file, format, quality)
+      const output = await pdfToImages(file, format, effectiveQuality)
       setResult(output)
       setStatus('done')
     } catch {
