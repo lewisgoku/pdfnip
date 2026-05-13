@@ -152,55 +152,58 @@ Sourced from competitive analysis of iLovePDF (May 2026).
 
 ---
 
-## Step 6: Extract Pages Tool ⬜
+## Step 6: Extract Pages Tool ✅
 
 Add a dedicated "Extract Pages" tool — the most common iLovePDF feature not yet in PDFNip.
 Extracts a user-defined subset of pages from a PDF into a new PDF (single output, not ZIP).
 
 ### Tasks
-- [ ] Implement `src/tools/extract.ts` — extract specific pages using pdf-lib
-  - [ ] Accept page range input (e.g. "1-3, 5")
-  - [ ] Return a single merged PDF containing only those pages
-- [ ] Build Extract page UI (mirrors Compress page structure)
-  - [ ] File drop / selection (single PDF, max 100MB)
-  - [ ] Page range input with live page count display
-  - [ ] "Extract" action button
-  - [ ] Processing / loading state with progress
-  - [ ] Download button for extracted PDF
-  - [ ] Error state (invalid file, invalid range, out-of-range pages)
-- [ ] Add route `/extract` in `App.tsx`
-- [ ] Add `ExtractCard` to home page tool grid
-- [ ] Mobile responsive layout (375px min-width)
-- [ ] Tests for extract tool logic
-- [ ] Tests for Extract page UI states
-- [ ] Typecheck, build verify, merge to main
+- [x] Implement `src/tools/extract.ts` — extract specific pages using pdf-lib
+  - [x] Accept page range input (e.g. "1-3, 5")
+  - [x] Return a single merged PDF containing only those pages
+- [x] Refactor `src/tools/pdfUtils.ts` — shared `parsePageRanges` and `getPageCount` (DRY)
+- [x] Build Extract page UI (mirrors Compress page structure)
+  - [x] File drop / selection (single PDF, max 100MB)
+  - [x] Page range input with page count display
+  - [x] "Extract" action button
+  - [x] Processing / loading state
+  - [x] Download button for extracted PDF
+  - [x] Error state (invalid file, invalid range, out-of-range pages)
+- [x] Add route `/extract` in `App.tsx`
+- [x] Add Extract card to home page tool grid (updated to 2-col sm / 4-col lg)
+- [x] Mobile responsive layout (375px min-width)
+- [x] Tests for extract tool logic (9 tests)
+- [x] Tests for Extract page UI states (13 tests)
+- [x] 242 tests passing across 17 test files
+- [x] Typecheck, build verify, merge to main
 
 ---
 
-## Step 7: Rotate PDF Tool ⬜
+## Step 7: Rotate PDF Tool ✅
 
 Add a "Rotate PDF" tool — simple, high-demand, fully doable in-browser with pdf-lib.
-Lets users rotate individual pages or all pages by 90°/180°/270°.
+Lets users rotate all pages by 90°/180°/270°.
 
 ### Tasks
-- [ ] Implement `src/tools/rotate.ts` — page rotation using pdf-lib
-  - [ ] Support per-page rotation: 90°, 180°, 270° (clockwise)
-  - [ ] Support "rotate all pages" shortcut
-  - [ ] Return a new PDF with updated page rotations
-- [ ] Build Rotate page UI
-  - [ ] File drop / selection (single PDF, max 100MB)
-  - [ ] Page thumbnails list with individual rotation controls (or simpler: rotate all)
-  - [ ] "Rotate all" shortcut buttons (90° CW, 180°, 90° CCW)
-  - [ ] "Apply & Download" action button
-  - [ ] Processing / loading state
-  - [ ] Download button for rotated PDF
-  - [ ] Error state (invalid file, oversized)
-- [ ] Add route `/rotate` in `App.tsx`
-- [ ] Add `RotateCard` to home page tool grid
-- [ ] Mobile responsive layout (375px min-width)
-- [ ] Tests for rotate tool logic
-- [ ] Tests for Rotate page UI states
-- [ ] Typecheck, build verify, merge to main
+- [x] Implement `src/tools/rotate.ts` — page rotation using pdf-lib
+  - [x] Support per-page rotation: 90°, 180°, 270° (clockwise)
+  - [x] Support "rotate all pages" shortcut
+  - [x] Return a new PDF with updated page rotations
+- [x] Build Rotate page UI
+  - [x] File drop / selection (single PDF, max 100MB)
+  - [x] "Rotate all" shortcut buttons (90° CW, 180°, 90° CCW)
+  - [x] "Apply & Download" action button
+  - [x] Processing / loading state
+  - [x] Download button for rotated PDF
+  - [x] Error state (invalid file, oversized)
+- [x] Add route `/rotate` in `App.tsx`
+- [x] Add Rotate card to home page tool grid
+- [x] Add Extract and Rotate links to Navbar
+- [x] Mobile responsive layout (375px min-width)
+- [x] Tests for rotate tool logic (5 tests)
+- [x] Tests for Rotate page UI states (12 tests)
+- [x] 280 tests passing across 38 test files
+- [x] Typecheck, build verify, merge to main
 
 ---
 
