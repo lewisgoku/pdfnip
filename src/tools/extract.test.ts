@@ -61,9 +61,11 @@ describe('extractPages', () => {
 
   it('passes 0-based indices to copyPages', async () => {
     const { PDFDocument } = await import('pdf-lib')
+    const mockCreate = vi.mocked(PDFDocument.create)
+    mockCreate.mockClear()
     const file = new File([new ArrayBuffer(1024)], 'doc.pdf', { type: 'application/pdf' })
     await extractPages(file, [1, 3, 5])
-    const outDoc = await vi.mocked(PDFDocument.create)()
+    const outDoc = await mockCreate.mock.results[0].value
     expect(vi.mocked(outDoc.copyPages)).toHaveBeenCalledWith(
       expect.anything(),
       [0, 2, 4],
