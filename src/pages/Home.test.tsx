@@ -56,9 +56,6 @@ it('renders Extract and Rotate tool cards', () => {
 
 it('Extract and Rotate cards link to correct routes', () => {
   renderHome()
-  const links = screen.getAllByRole('link')
-  const extractLink = links.find((l) => l.getAttribute('href') === '/extract')
-  const rotateLink = links.find((l) => l.getAttribute('href') === '/rotate')
-  expect(extractLink).toBeInTheDocument()
-  expect(rotateLink).toBeInTheDocument()
+  expect(screen.getByRole('link', { name: /^Extract/i })).toHaveAttribute('href', '/extract')
+  expect(screen.getByRole('link', { name: /^Rotate/i })).toHaveAttribute('href', '/rotate')
 })
