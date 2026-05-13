@@ -16,7 +16,7 @@ export default function Extract() {
 
   const downloadUrl = useMemo(() => {
     if (!result) return null
-    return URL.createObjectURL(new Blob([result.buffer as ArrayBuffer], { type: 'application/pdf' }))
+    return URL.createObjectURL(new Blob([result as BlobPart], { type: 'application/pdf' }))
   }, [result])
 
   useEffect(() => {
@@ -61,7 +61,7 @@ export default function Extract() {
       setStatus('done')
     } catch {
       setError('Something went wrong. Please try again.')
-      setStatus('error')
+      setStatus('ready')
     }
   }
 
@@ -93,7 +93,7 @@ export default function Extract() {
           <DropZone accept="application/pdf" onFiles={handleFiles} />
           {error && <p className="text-red-400 text-sm mt-3">{error}</p>}
           <p className="text-gray-600 text-xs mt-3">
-            Your files never leave your browser · Ads keep this tool free.
+            Your file never leaves your browser · Ads keep this tool free.
           </p>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
             <div className="bg-surface rounded-xl p-4">
@@ -143,7 +143,8 @@ export default function Extract() {
 
           <button
             onClick={handleExtract}
-            className="w-full py-3 rounded-full bg-primary text-bg font-semibold text-sm hover:opacity-90 transition-opacity"
+            disabled={status !== 'ready'}
+            className="w-full py-3 rounded-full bg-primary text-bg font-semibold text-sm hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Extract
           </button>

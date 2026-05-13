@@ -35,7 +35,7 @@ function makePDF(name = 'doc.pdf', size = 1024) {
 it('renders idle state with DropZone and privacy note', () => {
   render(<Extract />)
   expect(screen.getByTestId('dropzone')).toBeInTheDocument()
-  expect(screen.getByText(/never leave your browser/i)).toBeInTheDocument()
+  expect(screen.getByText(/never leaves your browser/i)).toBeInTheDocument()
 })
 
 it('renders how-it-works guide in idle state', () => {
