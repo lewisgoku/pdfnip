@@ -4,7 +4,7 @@ const mockToDataURL = vi.hoisted(() => vi.fn(() => 'data:image/jpeg;base64,AAAA'
 
 const mockZipInstance = vi.hoisted(() => ({
   file: vi.fn(),
-  generateAsync: vi.fn().mockResolvedValue(new Uint8Array([1, 2, 3])),
+  generateAsync: vi.fn(),
 }))
 
 // Alias used in assertions so the original test expectations still reference mockZip
@@ -40,6 +40,7 @@ import { pdfToImages } from './pdfToImages'
 beforeEach(() => {
   vi.clearAllMocks()
   HTMLCanvasElement.prototype.toDataURL = mockToDataURL
+  HTMLCanvasElement.prototype.getContext = vi.fn().mockReturnValue({})
   mockToDataURL.mockReturnValue('data:image/jpeg;base64,AAAA')
   mockGetDocument.mockReturnValue({ promise: Promise.resolve(mockPdf) })
   mockPdf.getPage.mockResolvedValue(mockPage)
@@ -86,5 +87,20 @@ describe('pdfToImages', () => {
     await pdfToImages(makePDF(), 'png', 'medium')
     expect(mockZip.file).toHaveBeenCalledWith('page-1.png', expect.any(Uint8Array))
     expect(mockZip.file).toHaveBeenCalledWith('page-2.png', expect.any(Uint8Array))
+  })
+
+  it('throws for files over 100MB', async () => {
+    const big = new File([new ArrayBuffer(101 * 1024 * 1024)], 'big.pdf', { type: 'application/pdf' })
+    await expect(pdfToImages(big, 'jpg', 'medium')).rejects.toThrow('File exceeds 100MB limit')
+  })
+
+  it('uses jpegQuality 0.60 for low quality', async () => {
+    await pdfToImages(makePDF(), 'jpg', 'low')
+    expect(mockToDataURL).toHaveBeenCalledWith('image/jpeg', 0.60)
+  })
+
+  it('uses jpegQuality 0.95 for high quality', async () => {
+    await pdfToImages(makePDF(), 'jpg', 'high')
+    expect(mockToDataURL).toHaveBeenCalledWith('image/jpeg', 0.95)
   })
 })

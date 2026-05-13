@@ -20,6 +20,9 @@ export async function pdfToImages(
   format: ImageFormat,
   quality: ImageQuality,
 ): Promise<Uint8Array> {
+  if (file.size > 100 * 1024 * 1024) {
+    throw new Error('File exceeds 100MB limit')
+  }
   const { scale, jpegQuality } = QUALITY_SETTINGS[quality]
   const arrayBuffer = await file.arrayBuffer()
   const pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer }).promise
@@ -46,8 +49,7 @@ export async function pdfToImages(
       bytes[j] = binaryStr.charCodeAt(j)
     }
 
-    const ext = format === 'jpg' ? 'jpg' : 'png'
-    zip.file(`page-${i}.${ext}`, bytes)
+    zip.file(`page-${i}.${format}`, bytes)
   }
 
   return zip.generateAsync({ type: 'uint8array' })
