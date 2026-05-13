@@ -19,6 +19,10 @@ vi.mock('./tools/split', () => ({
   getPageCount: vi.fn(),
 }))
 
+vi.mock('./tools/pdfToImages', () => ({
+  pdfToImages: vi.fn(),
+}))
+
 it('renders Home page at root route', () => {
   render(<App />)
   expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument()
