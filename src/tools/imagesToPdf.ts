@@ -8,11 +8,11 @@ const PAGE_DIMENSIONS: Record<'a4' | 'letter', { width: number; height: number }
 }
 
 function isJpeg(file: File): boolean {
-  return file.type === 'image/jpeg' || /\.(jpg|jpeg)$/i.test(file.name)
+  return file.type === 'image/jpeg'
 }
 
 function isPng(file: File): boolean {
-  return file.type === 'image/png' || /\.png$/i.test(file.name)
+  return file.type === 'image/png'
 }
 
 export async function imagesToPdf(
