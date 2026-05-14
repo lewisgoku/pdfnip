@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import Compress from './pages/Compress'
@@ -6,8 +6,7 @@ import Merge from './pages/Merge'
 import Split from './pages/Split'
 import Extract from './pages/Extract'
 import Rotate from './pages/Rotate'
-import PdfToImages from './pages/PdfToImages'
-import ImagesToPdf from './pages/ImagesToPdf'
+import Convert from './pages/Convert'
 import UnlockPdf from './pages/UnlockPdf'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Terms from './pages/Terms'
@@ -23,8 +22,9 @@ const router = createBrowserRouter([
       { path: 'split', element: <Split /> },
       { path: 'extract', element: <Extract /> },
       { path: 'rotate', element: <Rotate /> },
-      { path: 'pdf-to-images', element: <PdfToImages /> },
-      { path: 'images-to-pdf', element: <ImagesToPdf /> },
+      { path: 'convert', element: <Convert /> },
+      { path: 'pdf-to-images', element: <Navigate to="/convert" replace /> },
+      { path: 'images-to-pdf', element: <Navigate to="/convert" replace /> },
       { path: 'unlock-pdf', element: <UnlockPdf /> },
       { path: 'privacy', element: <PrivacyPolicy /> },
       { path: 'terms', element: <Terms /> },

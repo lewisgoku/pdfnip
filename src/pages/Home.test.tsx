@@ -60,15 +60,12 @@ it('Extract and Rotate cards link to correct routes', () => {
   expect(screen.getByRole('link', { name: /^Rotate/i })).toHaveAttribute('href', '/rotate')
 })
 
-it('renders PDF to Images tool card', () => {
+it('renders Convert tool card', () => {
   renderHome()
-  expect(screen.getByText('PDF to Images')).toBeInTheDocument()
+  expect(screen.getByText('Convert')).toBeInTheDocument()
 })
 
-it('PDF to Images card links to correct route', () => {
+it('Convert card links to correct route', () => {
   renderHome()
-  expect(screen.getByRole('link', { name: /pdf to images/i })).toHaveAttribute(
-    'href',
-    '/pdf-to-images',
-  )
+  expect(screen.getByRole('link', { name: /^Convert/i })).toHaveAttribute('href', '/convert')
 })

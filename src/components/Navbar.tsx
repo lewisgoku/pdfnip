@@ -8,8 +8,7 @@ const NAV_LINKS = [
   { to: '/split', label: 'Split' },
   { to: '/extract', label: 'Extract' },
   { to: '/rotate', label: 'Rotate' },
-  { to: '/pdf-to-images', label: 'PDF to Images' },
-  { to: '/images-to-pdf', label: 'Images to PDF' },
+  { to: '/convert', label: 'Convert' },
   { to: '/unlock-pdf', label: 'Unlock' },
 ]
 
