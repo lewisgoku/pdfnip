@@ -77,7 +77,7 @@ export default function Compress() {
 
   const downloadName = file
     ? `${file.name.replace(/\.pdf$/i, '')}_${quality}_compressPDF_pdfnip.com.pdf`
-    : `compressed_${quality}_compressPDF_pdfnip.com.pdf`
+    : ''
 
   const savingPct = result && file
     ? Math.max(0, Math.round((1 - result.byteLength / file.size) * 100))
