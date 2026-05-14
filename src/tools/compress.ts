@@ -8,23 +8,23 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
 
 export type Quality = 'low' | 'medium' | 'high'
 
-const QUALITY_SETTINGS: Record<Quality, { jpegQuality: number; scale: number }> = {
-  low: { jpegQuality: 0.5, scale: 1.0 },
-  medium: { jpegQuality: 0.75, scale: 1.5 },
-  high: { jpegQuality: 0.92, scale: 2.0 },
+const CANVAS_SETTINGS: Record<Quality, { scale: number; jpegQuality: number }> = {
+  low: { scale: 0.75, jpegQuality: 0.5 },
+  medium: { scale: 0.9, jpegQuality: 0.7 },
+  high: { scale: 1.0, jpegQuality: 0.85 },
 }
 
-export async function compressPDF(
-  file: File,
+async function losslessPass(arrayBuffer: ArrayBuffer): Promise<Uint8Array> {
+  const pdfDoc = await PDFDocument.load(arrayBuffer)
+  return pdfDoc.save({ useObjectStreams: true })
+}
+
+async function canvasPass(
+  arrayBuffer: ArrayBuffer,
   quality: Quality,
   onProgress?: (page: number, total: number) => void,
-): Promise<ArrayBuffer> {
-  if (file.size > 100 * 1024 * 1024) {
-    throw new Error('File exceeds 100MB limit')
-  }
-
-  const { jpegQuality, scale } = QUALITY_SETTINGS[quality]
-  const arrayBuffer = await file.arrayBuffer()
+): Promise<Uint8Array> {
+  const { scale, jpegQuality } = CANVAS_SETTINGS[quality]
   const pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer }).promise
   const numPages = pdfDoc.numPages
   const outputDoc = await PDFDocument.create()
@@ -55,6 +55,28 @@ export async function compressPDF(
     onProgress?.(i, numPages)
   }
 
-  const bytes = await outputDoc.save()
-  return bytes.buffer as ArrayBuffer
+  return outputDoc.save()
+}
+
+export async function compressPDF(
+  file: File,
+  quality: Quality,
+  onProgress?: (page: number, total: number) => void,
+): Promise<ArrayBuffer> {
+  if (file.size > 100 * 1024 * 1024) {
+    throw new Error('File exceeds 100MB limit')
+  }
+
+  const arrayBuffer = await file.arrayBuffer()
+
+  const lossless = await losslessPass(arrayBuffer)
+  const canvas = await canvasPass(arrayBuffer, quality, onProgress)
+
+  const best = lossless.byteLength <= canvas.byteLength ? lossless : canvas
+
+  if (best.byteLength >= file.size) {
+    return arrayBuffer
+  }
+
+  return best.slice().buffer
 }
