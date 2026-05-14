@@ -1,6 +1,6 @@
 import { vi, it, expect, beforeEach } from 'vitest'
 
-const mockSave = vi.fn()
+const mockSave = vi.hoisted(() => vi.fn())
 
 vi.mock('pdf-lib', () => ({
   PDFDocument: {
@@ -11,13 +11,10 @@ vi.mock('pdf-lib', () => ({
 import { PDFDocument } from 'pdf-lib'
 import { protectPdf, MAX_BYTES } from './protectPdf'
 
-const mockLoad = vi.mocked(PDFDocument.load)
-
 beforeEach(() => {
-  mockSave.mockReset()
+  vi.clearAllMocks()
   mockSave.mockResolvedValue(new Uint8Array(512))
-  mockLoad.mockReset()
-  mockLoad.mockResolvedValue({ save: mockSave } as never)
+  vi.mocked(PDFDocument.load).mockResolvedValue({ save: mockSave } as unknown as PDFDocument)
 })
 
 function makeFile(size = 1024) {

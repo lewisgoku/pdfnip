@@ -16,11 +16,11 @@ export async function protectPdf(
   if (file.size > MAX_BYTES) throw new Error('File is too large (max 100MB).')
   const arrayBuffer = await file.arrayBuffer()
   const pdfDoc = await PDFDocument.load(arrayBuffer)
-  return pdfDoc.save({
+  const saveOptions = {
     userPassword: password,
     ownerPassword: password,
     permissions: {
-      printing: permissions.printing ? 'highResolution' : undefined,
+      ...(permissions.printing && { printing: 'highResolution' as const }),
       modifying: permissions.editing,
       copying: permissions.copying,
       annotating: true,
@@ -28,5 +28,7 @@ export async function protectPdf(
       contentAccessibility: true,
       documentAssembly: true,
     },
-  } as Parameters<typeof pdfDoc.save>[0])
+  }
+  // pdf-lib's SaveOptions type omits encryption fields — cast only at the call site
+  return pdfDoc.save(saveOptions as unknown as Parameters<typeof pdfDoc.save>[0])
 }
