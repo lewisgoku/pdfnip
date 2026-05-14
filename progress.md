@@ -293,6 +293,100 @@ Remove password protection and owner restrictions from a PDF — fully in-browse
 
 ---
 
+## Step 11: Protect PDF ⬜
+
+Add a password to a PDF — fully in-browser via pdf-lib encryption.
+
+### Tasks
+- [ ] Implement `src/tools/protectPdf.ts` — pdf-lib `PDFDocument.save` with encryption options
+  - [ ] Set user password (open password) and owner password
+  - [ ] 100 MB file size guard
+- [ ] Build Protect PDF page UI
+  - [ ] File drop / selection (single PDF, max 100MB)
+  - [ ] Password input + confirm password input
+  - [ ] "Protect" action button
+  - [ ] Processing / loading state
+  - [ ] Download button (`<basename>-protected.pdf`)
+  - [ ] Error state (invalid file, oversized, password mismatch, conversion failure)
+- [ ] Add route `/protect-pdf` in `src/App.tsx`
+- [ ] Add Protect PDF card to home page tool grid (Lock icon)
+- [ ] Add Protect link to Navbar
+- [ ] Mobile responsive layout (375px min-width)
+- [ ] Tests for tool logic
+- [ ] Tests for page UI states
+- [ ] Typecheck, build verify, merge to main
+
+---
+
+## Step 12: Add Page Numbers ⬜
+
+Stamp page numbers onto every page of a PDF — fully in-browser via pdf-lib.
+
+### Tasks
+- [ ] Implement `src/tools/addPageNumbers.ts` — pdf-lib text stamping on each page
+  - [ ] Position options: bottom-centre, bottom-left, bottom-right
+  - [ ] Format options: "1", "Page 1", "1 / N"
+  - [ ] Starting number option
+- [ ] Build Add Page Numbers page UI
+- [ ] Add route `/page-numbers` in `src/App.tsx`
+- [ ] Add Page Numbers card to home page
+- [ ] Tests for tool logic and page UI
+- [ ] Typecheck, build verify, merge to main
+
+---
+
+## Step 13: Watermark PDF ⬜
+
+Add a text watermark to every page of a PDF — fully in-browser via pdf-lib.
+
+### Tasks
+- [ ] Implement `src/tools/watermark.ts` — pdf-lib diagonal text stamp on each page
+  - [ ] Custom watermark text
+  - [ ] Opacity control
+  - [ ] Font size option
+- [ ] Build Watermark PDF page UI
+- [ ] Add route `/watermark` in `src/App.tsx`
+- [ ] Add Watermark card to home page
+- [ ] Tests for tool logic and page UI
+- [ ] Typecheck, build verify, merge to main
+
+---
+
+## Step 14: Delete & Reorder Pages ⬜
+
+Remove individual pages and drag-to-reorder pages within a PDF — fully in-browser via pdf-lib.
+
+### Tasks
+- [ ] Implement `src/tools/organizePages.ts` — pdf-lib page selection and reorder
+  - [ ] Delete individual pages
+  - [ ] Reorder pages via drag-and-drop
+- [ ] Build Organize Pages page UI
+  - [ ] Page thumbnail grid (canvas-rendered via PDF.js)
+  - [ ] Per-page delete button
+  - [ ] Drag-to-reorder
+- [ ] Add route `/organize` in `src/App.tsx`
+- [ ] Add Organize Pages card to home page
+- [ ] Tests for tool logic and page UI
+- [ ] Typecheck, build verify, merge to main
+
+---
+
+## Step 15: Crop PDF ⬜
+
+Crop the visible area of every page in a PDF — fully in-browser via pdf-lib mediaBox/cropBox manipulation.
+
+### Tasks
+- [ ] Implement `src/tools/cropPdf.ts` — pdf-lib cropBox adjustment
+  - [ ] Set margin crop (top/bottom/left/right in mm)
+  - [ ] Apply to all pages
+- [ ] Build Crop PDF page UI
+- [ ] Add route `/crop` in `src/App.tsx`
+- [ ] Add Crop card to home page
+- [ ] Tests for tool logic and page UI
+- [ ] Typecheck, build verify, merge to main
+
+---
+
 ## Legend
 
 | Symbol | Meaning |
