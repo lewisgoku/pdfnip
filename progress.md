@@ -318,6 +318,26 @@ Add a password to a PDF — fully in-browser via pdf-lib encryption.
 
 ---
 
+## Session: 2026-05-14 — Fixes & Polish ✅
+
+### Tasks
+- [x] **Protect PDF** — completed Step 11 (tool, page UI, wiring, tests, pushed to main)
+  - [x] `ownerPassword` uses `crypto.randomUUID()` so permission restrictions are enforceable
+  - [x] `PERMISSION_LABELS` moved to module scope
+  - [x] `vi.clearAllMocks()` pattern applied to page test
+- [x] **Compress PDF rework** — two-pass compression approach
+  - [x] Lossless pass: `PDFDocument.load` + `save({ useObjectStreams: true })` — helps text/vector PDFs
+  - [x] Canvas pass: renders pages at downscaled resolution and re-encodes as JPEG — helps scanned/image PDFs
+  - [x] Returns smallest of (lossless, canvas, original) — never makes file bigger
+  - [x] Fixed ArrayBuffer detach bug: pdf.js transfers the buffer to its worker, so `arrayBuffer.slice(0)` is passed as a copy to prevent the original being detached
+  - [x] Canvas scale settings: Low 0.5×, Medium 0.7×, High 0.85× (JPEG quality: 0.35 / 0.55 / 0.75)
+- [x] **Compress output report** — added quality label and original filename to the done-state card
+- [x] **Compress download filename** — branded format: `{filename}_{quality}_compressPDF_pdfnip.com.pdf`
+- [x] **Home page** — unified single `grid-cols-2 md:grid-cols-4` grid for all 8 tool cards
+- [x] **Google AdSense** — added AdSense script tag to `index.html` (verification meta tag was already present, script was missing)
+
+---
+
 ## Step 12: Add Page Numbers ⬜
 
 Stamp page numbers onto every page of a PDF — fully in-browser via pdf-lib.
