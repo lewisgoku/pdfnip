@@ -196,6 +196,9 @@ export default function Compress() {
                 <p className="text-primary font-semibold">{savingPct}%</p>
               </div>
             </div>
+            <p className="text-gray-500 text-xs text-center mt-4 pt-3 border-t border-white/5">
+              Quality · <span className="text-white capitalize">{quality}</span>
+            </p>
           </div>
           <a
             href={downloadUrl}
