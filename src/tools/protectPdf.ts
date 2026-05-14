@@ -18,7 +18,7 @@ export async function protectPdf(
   const pdfDoc = await PDFDocument.load(arrayBuffer)
   const saveOptions = {
     userPassword: password,
-    ownerPassword: password,
+    ownerPassword: crypto.randomUUID(),
     permissions: {
       ...(permissions.printing && { printing: 'highResolution' as const }),
       modifying: permissions.editing,

@@ -6,6 +6,12 @@ import { formatBytes } from '../utils/formatBytes'
 
 type Status = 'idle' | 'ready' | 'protecting' | 'done'
 
+const PERMISSION_LABELS: { key: keyof ProtectPermissions; label: string }[] = [
+  { key: 'printing', label: 'Allow printing' },
+  { key: 'copying', label: 'Allow copying text' },
+  { key: 'editing', label: 'Allow editing' },
+]
+
 function getDownloadName(file: File): string {
   const dotIndex = file.name.lastIndexOf('.')
   const base = dotIndex >= 0 ? file.name.slice(0, dotIndex) : file.name
@@ -92,12 +98,6 @@ export default function ProtectPdf() {
   function togglePermission(key: keyof ProtectPermissions) {
     setPermissions((prev) => ({ ...prev, [key]: !prev[key] }))
   }
-
-  const PERMISSION_LABELS: { key: keyof ProtectPermissions; label: string }[] = [
-    { key: 'printing', label: 'Allow printing' },
-    { key: 'copying', label: 'Allow copying text' },
-    { key: 'editing', label: 'Allow editing' },
-  ]
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-12">

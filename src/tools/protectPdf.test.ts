@@ -37,11 +37,11 @@ it('throws on file over 100MB', async () => {
   ).rejects.toThrow('File is too large')
 })
 
-it('passes userPassword and ownerPassword to save', async () => {
+it('passes userPassword to save and ownerPassword differs from userPassword', async () => {
   await protectPdf(makeFile(), 'mypass', { printing: true, copying: true, editing: true })
-  expect(mockSave).toHaveBeenCalledWith(
-    expect.objectContaining({ userPassword: 'mypass', ownerPassword: 'mypass' }),
-  )
+  const call = mockSave.mock.calls[0][0] as { userPassword: string; ownerPassword: string }
+  expect(call.userPassword).toBe('mypass')
+  expect(call.ownerPassword).not.toBe('mypass')
 })
 
 it('maps printing:true to highResolution', async () => {

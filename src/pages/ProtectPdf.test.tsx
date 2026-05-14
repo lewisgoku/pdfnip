@@ -12,7 +12,7 @@ import ProtectPdf from './ProtectPdf'
 const mockProtectPdf = vi.mocked(protectPdf)
 
 beforeEach(() => {
-  mockProtectPdf.mockReset()
+  vi.clearAllMocks()
   mockProtectPdf.mockResolvedValue(new Uint8Array(2048))
 })
 
