@@ -2,6 +2,9 @@ import { PDFDocument } from 'pdf-lib'
 
 export type PageSize = 'a4' | 'letter' | 'image'
 
+const MAX_IMAGES = 20
+const MAX_TOTAL_BYTES = 50 * 1024 * 1024
+
 const PAGE_DIMENSIONS: Record<'a4' | 'letter', { width: number; height: number }> = {
   a4:     { width: 595, height: 842 },
   letter: { width: 612, height: 792 },
@@ -19,12 +22,12 @@ export async function imagesToPdf(
   files: File[],
   pageSize: PageSize,
 ): Promise<Uint8Array> {
-  if (files.length < 1 || files.length > 20) {
+  if (files.length < 1 || files.length > MAX_IMAGES) {
     throw new Error('Maximum 20 images allowed.')
   }
 
   const totalSize = files.reduce((sum, f) => sum + f.size, 0)
-  if (totalSize > 50 * 1024 * 1024) {
+  if (totalSize > MAX_TOTAL_BYTES) {
     throw new Error('Total size exceeds 50 MB limit.')
   }
 

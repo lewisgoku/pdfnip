@@ -28,7 +28,7 @@ beforeEach(() => {
   mockPdfDoc.embedPng.mockResolvedValue(mockImage)
   mockPdfDoc.addPage.mockReturnValue(mockPage)
   mockPdfDoc.save.mockResolvedValue(new Uint8Array([1, 2, 3]))
-  vi.mocked(PDFDocument.create).mockResolvedValue(mockPdfDoc as any)
+  vi.mocked(PDFDocument.create).mockResolvedValue(mockPdfDoc as unknown as PDFDocument)
 })
 
 function makeJpeg(name = 'photo.jpg', size = 1024) {
