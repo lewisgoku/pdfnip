@@ -293,12 +293,6 @@ Remove password protection and owner restrictions from a PDF — fully in-browse
 
 ---
 
-## Step 11: PDF → Word/Excel (Long-term) ⬜
-
-Requires WASM library (e.g. pdf2docx via Pyodide) or a server endpoint — high effort, breaks browser-only constraint. Evaluate before committing.
-
----
-
 ## Legend
 
 | Symbol | Meaning |
