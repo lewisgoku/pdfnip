@@ -79,7 +79,7 @@ export default function Home() {
     <div className="max-w-4xl mx-auto px-4 py-12">
       <PageMeta
         title="PDFNip | Free PDF Tools"
-        description="Free PDF tools that run entirely in your browser. Compress, merge, split, extract, rotate PDFs, and convert to images — your files never leave your device."
+        description="Free PDF tools that run entirely in your browser. Compress, merge, split, extract, rotate PDFs, convert to images, and build PDFs from images — your files never leave your device."
         path="/"
       />
       <div className="mb-14 text-center">
