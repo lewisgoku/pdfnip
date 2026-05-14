@@ -1,4 +1,4 @@
-import { FileDown, GitMerge, Scissors, FileOutput, RotateCw, ImageDown, FileImage } from 'lucide-react'
+import { FileDown, GitMerge, Scissors, FileOutput, RotateCw, ImageDown, FileImage, LockOpen } from 'lucide-react'
 import ToolCard from '../components/ToolCard'
 import PageMeta from '../components/PageMeta'
 
@@ -53,6 +53,13 @@ const TOOLS = [
     detail: '1–20 images · A4, Letter, or match size',
     icon: <FileImage size={32} />,
     href: '/images-to-pdf',
+  },
+  {
+    title: 'Unlock PDF',
+    description: 'Remove password protection and owner restrictions',
+    detail: 'No password? Auto-detected · No uploads',
+    icon: <LockOpen size={32} />,
+    href: '/unlock-pdf',
   },
 ]
 

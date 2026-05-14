@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { to: '/rotate', label: 'Rotate' },
   { to: '/pdf-to-images', label: 'PDF to Images' },
   { to: '/images-to-pdf', label: 'Images to PDF' },
+  { to: '/unlock-pdf', label: 'Unlock' },
 ]
 
 const donateClass =
