@@ -96,15 +96,15 @@ describe('compressPDF', () => {
     const file = new File([new ArrayBuffer(10 * 1024)], 'test.pdf', { type: 'application/pdf' })
 
     await compressPDF(file, 'low')
-    expect(mockCanvas.toDataURL).toHaveBeenCalledWith('image/jpeg', 0.5)
+    expect(mockCanvas.toDataURL).toHaveBeenCalledWith('image/jpeg', 0.35)
 
     mockCanvas.toDataURL.mockClear()
     await compressPDF(file, 'medium')
-    expect(mockCanvas.toDataURL).toHaveBeenCalledWith('image/jpeg', 0.7)
+    expect(mockCanvas.toDataURL).toHaveBeenCalledWith('image/jpeg', 0.55)
 
     mockCanvas.toDataURL.mockClear()
     await compressPDF(file, 'high')
-    expect(mockCanvas.toDataURL).toHaveBeenCalledWith('image/jpeg', 0.85)
+    expect(mockCanvas.toDataURL).toHaveBeenCalledWith('image/jpeg', 0.75)
   })
 
   it('returns lossless result when it is smaller than canvas', async () => {

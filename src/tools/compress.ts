@@ -9,9 +9,9 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
 export type Quality = 'low' | 'medium' | 'high'
 
 const CANVAS_SETTINGS: Record<Quality, { scale: number; jpegQuality: number }> = {
-  low: { scale: 0.75, jpegQuality: 0.5 },
-  medium: { scale: 0.9, jpegQuality: 0.7 },
-  high: { scale: 1.0, jpegQuality: 0.85 },
+  low: { scale: 0.5, jpegQuality: 0.35 },
+  medium: { scale: 0.7, jpegQuality: 0.55 },
+  high: { scale: 0.85, jpegQuality: 0.75 },
 }
 
 async function losslessPass(arrayBuffer: ArrayBuffer): Promise<Uint8Array> {
