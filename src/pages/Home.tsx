@@ -113,12 +113,7 @@ export default function Home() {
       </div>
       <p className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Choose a tool</p>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {TOOLS.slice(0, 4).map((tool) => (
-          <ToolCard key={tool.href} {...tool} />
-        ))}
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
-        {TOOLS.slice(4).map((tool) => (
+        {TOOLS.map((tool) => (
           <ToolCard key={tool.href} {...tool} />
         ))}
       </div>
