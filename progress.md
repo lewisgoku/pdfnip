@@ -293,28 +293,28 @@ Remove password protection and owner restrictions from a PDF — fully in-browse
 
 ---
 
-## Step 11: Protect PDF ⬜
+## Step 11: Protect PDF ✅
 
 Add a password to a PDF — fully in-browser via pdf-lib encryption.
 
 ### Tasks
-- [ ] Implement `src/tools/protectPdf.ts` — pdf-lib `PDFDocument.save` with encryption options
-  - [ ] Set user password (open password) and owner password
-  - [ ] 100 MB file size guard
-- [ ] Build Protect PDF page UI
-  - [ ] File drop / selection (single PDF, max 100MB)
-  - [ ] Password input + confirm password input
-  - [ ] "Protect" action button
-  - [ ] Processing / loading state
-  - [ ] Download button (`<basename>-protected.pdf`)
-  - [ ] Error state (invalid file, oversized, password mismatch, conversion failure)
-- [ ] Add route `/protect-pdf` in `src/App.tsx`
-- [ ] Add Protect PDF card to home page tool grid (Lock icon)
-- [ ] Add Protect link to Navbar
-- [ ] Mobile responsive layout (375px min-width)
-- [ ] Tests for tool logic
-- [ ] Tests for page UI states
-- [ ] Typecheck, build verify, merge to main
+- [x] Implement `src/tools/protectPdf.ts` — pdf-lib `PDFDocument.save` with encryption options
+  - [x] Set user password (open password) and owner password
+  - [x] 100 MB file size guard
+- [x] Build Protect PDF page UI
+  - [x] File drop / selection (single PDF, max 100MB)
+  - [x] Password input + confirm password input
+  - [x] "Protect" action button
+  - [x] Processing / loading state
+  - [x] Download button (`<basename>-protected.pdf`)
+  - [x] Error state (invalid file, oversized, password mismatch, conversion failure)
+- [x] Add route `/protect-pdf` in `src/App.tsx`
+- [x] Add Protect PDF card to home page tool grid (Lock icon)
+- [x] Add Protect link to Navbar
+- [x] Mobile responsive layout (375px min-width)
+- [x] Tests for tool logic
+- [x] Tests for page UI states
+- [x] Typecheck, build verify, merge to main
 
 ---
 

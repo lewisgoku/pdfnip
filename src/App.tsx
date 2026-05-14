@@ -8,6 +8,7 @@ import Extract from './pages/Extract'
 import Rotate from './pages/Rotate'
 import Convert from './pages/Convert'
 import UnlockPdf from './pages/UnlockPdf'
+import ProtectPdf from './pages/ProtectPdf'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Terms from './pages/Terms'
 
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
       { path: 'pdf-to-images', element: <Navigate to="/convert" replace /> },
       { path: 'images-to-pdf', element: <Navigate to="/convert" replace /> },
       { path: 'unlock-pdf', element: <UnlockPdf /> },
+      { path: 'protect-pdf', element: <ProtectPdf /> },
       { path: 'privacy', element: <PrivacyPolicy /> },
       { path: 'terms', element: <Terms /> },
     ],

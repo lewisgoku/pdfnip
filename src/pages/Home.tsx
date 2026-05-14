@@ -1,4 +1,4 @@
-import { FileDown, GitMerge, Scissors, FileOutput, RotateCw, ArrowLeftRight, LockOpen } from 'lucide-react'
+import { FileDown, GitMerge, Scissors, FileOutput, RotateCw, ArrowLeftRight, LockOpen, Lock } from 'lucide-react'
 import ToolCard from '../components/ToolCard'
 import PageMeta from '../components/PageMeta'
 
@@ -54,6 +54,13 @@ const TOOLS = [
     icon: <LockOpen size={32} />,
     href: '/unlock-pdf',
   },
+  {
+    title: 'Protect PDF',
+    description: 'Add a password to your PDF',
+    detail: 'Set permissions · All in-browser',
+    icon: <Lock size={32} />,
+    href: '/protect-pdf',
+  },
 ]
 
 const STEPS = [
@@ -105,8 +112,13 @@ export default function Home() {
         </p>
       </div>
       <p className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Choose a tool</p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {TOOLS.map((tool) => (
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {TOOLS.slice(0, 4).map((tool) => (
+          <ToolCard key={tool.href} {...tool} />
+        ))}
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+        {TOOLS.slice(4).map((tool) => (
           <ToolCard key={tool.href} {...tool} />
         ))}
       </div>
