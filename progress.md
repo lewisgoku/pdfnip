@@ -237,12 +237,31 @@ Convert every PDF page to JPG or PNG and download as a ZIP — fully in-browser.
 
 ---
 
-## Step 9: Images to PDF (Next) ⬜
+## Step 9: Images to PDF ✅
 
-Convert JPG/PNG images to a single PDF — fully in-browser via pdf-lib (already installed).
+Convert JPG/PNG images to a single PDF — fully in-browser via pdf-lib.
 
-### Tasks (pending)
-- [ ] Decide on scope and design before implementation
+### Tasks
+- [x] Implement `src/tools/imagesToPdf.ts` — embed JPG/PNG into PDF via pdf-lib
+  - [x] Page size options: A4 (595×842), Letter (612×792), match image dimensions
+  - [x] Aspect-ratio fit + centre for A4/Letter; pixel-perfect for image size
+  - [x] 1–20 images, 50 MB total cap
+- [x] Build Images to PDF page UI
+  - [x] Multi-file drop (JPG + PNG only)
+  - [x] Drag-to-reorder file list
+  - [x] Page size selector (A4 default)
+  - [x] "Convert to PDF" action button
+  - [x] Processing / loading state
+  - [x] Download button (`images.pdf`)
+  - [x] Error states (invalid file, too many, oversized, conversion failure)
+- [x] Add route `/images-to-pdf` in `src/App.tsx`
+- [x] Add Images to PDF card to home page tool grid
+- [x] Add Images to PDF link to Navbar
+- [x] Mobile responsive layout (375px min-width)
+- [x] Tests for tool logic (11 tests)
+- [x] Tests for page UI states (16 tests)
+- [x] 194 tests passing across 23 test files
+- [x] Typecheck, build verify, merge to main
 
 ---
 
