@@ -25,7 +25,8 @@ async function canvasPass(
   onProgress?: (page: number, total: number) => void,
 ): Promise<Uint8Array> {
   const { scale, jpegQuality } = CANVAS_SETTINGS[quality]
-  const pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer }).promise
+  // slice(0) gives pdf.js its own copy to transfer to the worker without detaching the original
+  const pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer.slice(0) }).promise
   const numPages = pdfDoc.numPages
   const outputDoc = await PDFDocument.create()
 
