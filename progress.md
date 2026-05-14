@@ -265,7 +265,35 @@ Convert JPG/PNG images to a single PDF — fully in-browser via pdf-lib.
 
 ---
 
-## Step 10: PDF → Word/Excel (Long-term) ⬜
+## Step 10: Unlock PDF ✅
+
+Remove password protection and owner restrictions from a PDF — fully in-browser via pdf-lib.
+
+### Tasks
+- [x] Implement `src/tools/unlockPdf.ts` — pdf-lib `PDFDocument.load` with `EncryptedPDFError` handling
+  - [x] `PasswordRequiredError` when encrypted + no password
+  - [x] `IncorrectPasswordError` when encrypted + wrong password
+  - [x] 100 MB file size guard
+- [x] Build Unlock PDF page UI
+  - [x] File drop / selection (single PDF, max 100MB)
+  - [x] Auto-unlock on drop (no button needed for unprotected PDFs)
+  - [x] Password input (appears only when needed)
+  - [x] Inline error on wrong password
+  - [x] Download button (`<basename>-unlocked.pdf`)
+  - [x] "Use a different file" + "Unlock another PDF" reset paths
+  - [x] Error state (unexpected failures)
+- [x] Add route `/unlock-pdf` in `src/App.tsx`
+- [x] Add Unlock PDF card to home page tool grid (LockOpen icon)
+- [x] Add Unlock link to Navbar
+- [x] Mobile responsive layout (375px min-width)
+- [x] Tests for tool logic (7 tests)
+- [x] Tests for page UI states (14 tests)
+- [x] 215 tests passing across 25 test files
+- [x] Typecheck, build verify, merged and pushed to main
+
+---
+
+## Step 11: PDF → Word/Excel (Long-term) ⬜
 
 Requires WASM library (e.g. pdf2docx via Pyodide) or a server endpoint — high effort, breaks browser-only constraint. Evaluate before committing.
 
