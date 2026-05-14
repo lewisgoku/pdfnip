@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { to: '/extract', label: 'Extract' },
   { to: '/rotate', label: 'Rotate' },
   { to: '/pdf-to-images', label: 'PDF to Images' },
+  { to: '/images-to-pdf', label: 'Images to PDF' },
 ]
 
 const donateClass =

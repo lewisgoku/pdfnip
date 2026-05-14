@@ -7,6 +7,7 @@ import Split from './pages/Split'
 import Extract from './pages/Extract'
 import Rotate from './pages/Rotate'
 import PdfToImages from './pages/PdfToImages'
+import ImagesToPdf from './pages/ImagesToPdf'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Terms from './pages/Terms'
 
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
       { path: 'extract', element: <Extract /> },
       { path: 'rotate', element: <Rotate /> },
       { path: 'pdf-to-images', element: <PdfToImages /> },
+      { path: 'images-to-pdf', element: <ImagesToPdf /> },
       { path: 'privacy', element: <PrivacyPolicy /> },
       { path: 'terms', element: <Terms /> },
     ],

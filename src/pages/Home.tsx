@@ -1,4 +1,4 @@
-import { FileDown, GitMerge, Scissors, FileOutput, RotateCw, ImageDown } from 'lucide-react'
+import { FileDown, GitMerge, Scissors, FileOutput, RotateCw, ImageDown, FileImage } from 'lucide-react'
 import ToolCard from '../components/ToolCard'
 import PageMeta from '../components/PageMeta'
 
@@ -46,6 +46,13 @@ const TOOLS = [
     detail: 'JPG or PNG · Low / Medium / High quality · ZIP output',
     icon: <ImageDown size={32} />,
     href: '/pdf-to-images',
+  },
+  {
+    title: 'Images to PDF',
+    description: 'Convert JPG and PNG images to a PDF',
+    detail: '1–20 images · A4, Letter, or match size',
+    icon: <FileImage size={32} />,
+    href: '/images-to-pdf',
   },
 ]
 
