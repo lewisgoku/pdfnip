@@ -35,7 +35,7 @@ export default function ImagesToPdf() {
 
   const downloadUrl = useMemo(() => {
     if (!result) return null
-    return URL.createObjectURL(new Blob([result as BlobPart], { type: 'application/pdf' }))
+    return URL.createObjectURL(new Blob([result as BufferSource], { type: 'application/pdf' }))
   }, [result])
 
   useEffect(() => {
