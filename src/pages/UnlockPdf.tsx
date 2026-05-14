@@ -1,12 +1,10 @@
 import { useState, useEffect, useMemo } from 'react'
 import DropZone from '../components/DropZone'
 import PageMeta from '../components/PageMeta'
-import { unlockPdf, PasswordRequiredError, IncorrectPasswordError } from '../tools/unlockPdf'
+import { unlockPdf, PasswordRequiredError, IncorrectPasswordError, MAX_BYTES } from '../tools/unlockPdf'
 import { formatBytes } from '../utils/formatBytes'
 
 type Status = 'idle' | 'unlocking' | 'needs_password' | 'done' | 'error'
-
-const MAX_BYTES = 100 * 1024 * 1024
 
 function getDownloadName(file: File): string {
   const dotIndex = file.name.lastIndexOf('.')

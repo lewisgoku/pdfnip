@@ -1,6 +1,6 @@
 import { PDFDocument, EncryptedPDFError } from 'pdf-lib'
 
-const MAX_BYTES = 100 * 1024 * 1024
+export const MAX_BYTES = 100 * 1024 * 1024
 
 export class PasswordRequiredError extends Error {}
 export class IncorrectPasswordError extends Error {}
