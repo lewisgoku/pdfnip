@@ -36,6 +36,11 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://pdfnip.com/images-to-pdf</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://pdfnip.com/unlock-pdf</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
