@@ -171,10 +171,11 @@ export default function Convert() {
   }
 
   function handleDropReorder(targetIndex: number) {
-    if (dragIndex.current === null || dragIndex.current === targetIndex) return
+    const from = dragIndex.current
+    if (from === null || from === targetIndex) return
     setImageFiles((prev) => {
       const next = [...prev]
-      const [moved] = next.splice(dragIndex.current!, 1)
+      const [moved] = next.splice(from, 1)
       next.splice(targetIndex, 0, moved)
       return next
     })
@@ -330,7 +331,7 @@ export default function Convert() {
               )}
               {error && <p className="text-red-400 text-sm">{error}</p>}
               <button
-                onClick={() => void handlePdfConvert()}
+                onClick={handlePdfConvert}
                 className="w-full py-3 rounded-full bg-primary text-bg font-semibold text-sm hover:opacity-90 transition-opacity"
               >
                 Convert
@@ -444,7 +445,7 @@ export default function Convert() {
               </div>
               {error && <p className="text-red-400 text-sm">{error}</p>}
               <button
-                onClick={() => void handleImagesConvert()}
+                onClick={handleImagesConvert}
                 className="w-full py-3 rounded-full bg-primary text-bg font-semibold text-sm hover:opacity-90 transition-opacity"
               >
                 Convert to PDF
