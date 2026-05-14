@@ -13,7 +13,7 @@ export async function unlockPdf(file: File, password?: string): Promise<Uint8Arr
   try {
     const pdfDoc = await PDFDocument.load(
       arrayBuffer,
-      password ? ({ password } as Parameters<typeof PDFDocument.load>[1]) : undefined,
+      password ? ({ password } as Record<string, unknown>) : undefined,
     )
     return pdfDoc.save()
   } catch (e) {
