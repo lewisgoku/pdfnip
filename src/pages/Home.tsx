@@ -2,7 +2,7 @@ import { FileDown, GitMerge, Scissors, FileOutput, RotateCw, ArrowLeftRight, Loc
 import ToolCard from '../components/ToolCard'
 import PageMeta from '../components/PageMeta'
 
-const PDFS_PROCESSED = '250,000+'
+const PDFS_PROCESSED = '1,000+'
 
 const TOOLS = [
   {
